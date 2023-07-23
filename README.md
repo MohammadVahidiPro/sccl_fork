@@ -1,3 +1,5 @@
+
+# *****FORK*****
 # SCCL: Supporting Clustering with Contrastive Learning 
 
 This repository contains the code for our paper [Supporting Clustering with Contrastive Learning (NAACL 2021)](https://aclanthology.org/2021.naacl-main.427.pdf) Dejiao Zhang, Feng Nan, Xiaokai Wei, Shangwen Li, Henghui Zhu, Kathleen McKeown, Ramesh Nallapati, Andrew Arnold, and Bing Xiang.
