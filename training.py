@@ -9,10 +9,13 @@ import os
 import time
 import numpy as np
 from sklearn import cluster
-
+import wandb as wb
+from pathlib import Path
 from utils.logger import statistics_log
 from utils.metric import Confusion
 from dataloader.dataloader import unshuffle_loader
+import copy
+
 
 import torch
 import torch.nn as nn
@@ -20,7 +23,9 @@ from torch.nn import functional as F
 from learner.cluster_utils import target_distribution
 from learner.contrastive_utils import PairConLoss
 
-class SCCLvTrainer(nn.Module):
+insert_keyword = lambda dic, word: dict([(f"{word}/{k}", v) for k, v in dic.items()])
+format_float = lambda dic, ndigit: dict([(k, round(v, ndigit)) for k, v in dic.items()])
+class SCCLvTrainer(nn.Module): 
     def __init__(self, model, tokenizer, optimizer, train_loader, args):
         super(SCCLvTrainer, self).__init__()
         self.model = model
@@ -29,13 +34,32 @@ class SCCLvTrainer(nn.Module):
         self.train_loader = train_loader
         self.args = args
         self.eta = self.args.eta
-        
+        self.save_model_path = Path(__file__).parent.resolve() / "models" / self.args.dataname
+        self.save_interval = 100
+        self.best_model_scores = None
         self.cluster_loss = nn.KLDivLoss(size_average=False)
         self.contrast_loss = PairConLoss(temperature=self.args.temperature)
         
         self.gstep = 0
         print(f"*****Intialize SCCLv, temp:{self.args.temperature}, eta:{self.args.eta}\n")
-        
+    
+    def update_best_model(self, current_model):
+        if self.best_model_scores is None or current_model["avg"] > self.best_model_scores["best/avg"]:
+            # self.best_model_scores = copy.deepcopy(current_model)
+            self.best_model_scores =  dict([(f"best/{k}", v) for k, v in current_model.items()])
+            
+            wb.run.summary.update(self.best_model_scores)
+            wb.run.log(self.best_model_scores)
+            
+            path = self.save_model_path / f"{wb.run.id}-{self.args.bert}-best-model.pth"
+            torch.save(obj=self.model.state_dict(), f=path.__str__())
+
+
+            
+            return path
+        return None
+            # self.model()
+
     def get_batch_token(self, text):
         token_feat = self.tokenizer.batch_encode_plus(
             text, 
@@ -68,13 +92,14 @@ class SCCLvTrainer(nn.Module):
         return input_ids.cuda(), attention_mask.cuda()
         
         
-    def train_step_virtual(self, input_ids, attention_mask):
+    def train_step_virtual(self, input_ids, attention_mask, itr):
         
         embd1, embd2 = self.model(input_ids, attention_mask, task_type="virtual")
 
         # Instance-CL loss
         feat1, feat2 = self.model.contrast_logits(embd1, embd2)
         losses = self.contrast_loss(feat1, feat2)
+        constrastive_loss_value = losses["loss"].item()
         loss = self.eta * losses["loss"]
         
         # Clustering loss
@@ -82,61 +107,62 @@ class SCCLvTrainer(nn.Module):
             output = self.model.get_cluster_prob(embd1)
             target = target_distribution(output).detach()
             
-            cluster_loss = self.cluster_loss((output+1e-08).log(), target)/output.shape[0]
-            loss += 0.5*cluster_loss
-            losses["cluster_loss"] = cluster_loss.item()
+            cluster_loss = self.cluster_loss((output+1e-08).log(), target) / output.shape[0]
+            loss += 0.5 * cluster_loss
+            cluster_loss_value = cluster_loss.item()
+            losses["cluster_loss"] = cluster_loss_value
 
         loss.backward()
         self.optimizer.step()
         self.optimizer.zero_grad()
-        return losses
+
+        wb_dic = {
+            "all-loss": loss.item(),
+            "contrast-loss": constrastive_loss_value,
+            "cluster-loss": cluster_loss_value,
+            "iter": itr
+            }
+
+        return losses, wb_dic
     
-    
-    def train_step_explicit(self, input_ids, attention_mask):
-        
-        embd1, embd2, embd3 = self.model(input_ids, attention_mask, task_type="explicit")
-
-        # Instance-CL loss
-        feat1, feat2 = self.model.contrast_logits(embd2, embd3)
-        losses = self.contrast_loss(feat1, feat2)
-        loss = self.eta * losses["loss"]
-
-        # Clustering loss
-        if self.args.objective == "SCCL":
-            output = self.model.get_cluster_prob(embd1)
-            target = target_distribution(output).detach()
-            
-            cluster_loss = self.cluster_loss((output+1e-08).log(), target)/output.shape[0]
-            loss += cluster_loss
-            losses["cluster_loss"] = cluster_loss.item()
-
-        loss.backward()
-        self.optimizer.step()
-        self.optimizer.zero_grad()
-        return losses
     
     
     def train(self):
+        print("#" * 40)
         print('\n={}/{}=Iterations/Batches'.format(self.args.max_iter, len(self.train_loader)))
-
+        wb.watch(self.model)
         self.model.train()
         for i in np.arange(self.args.max_iter+1):
             try:
                 batch = next(train_loader_iter)
-            except:
+            except Exception as e:
+                print(e)
                 train_loader_iter = iter(self.train_loader)
                 batch = next(train_loader_iter)
 
             input_ids, attention_mask = self.prepare_transformer_input(batch)
 
-            losses = self.train_step_virtual(input_ids, attention_mask) if self.args.augtype == "virtual" else self.train_step_explicit(input_ids, attention_mask)
+            losses, loss_dic = self.train_step_virtual(input_ids, attention_mask, itr=i) if self.args.augtype == "virtual" else self.train_step_explicit(input_ids, attention_mask)
+            wb.run.log(loss_dic)
+            
 
-            if (self.args.print_freq>0) and ((i%self.args.print_freq==0) or (i==self.args.max_iter)):
+            if (self.args.print_freq > 0) and ((i%self.args.print_freq == 0)  or (i == self.args.max_iter)):
                 statistics_log(self.args.tensorboard, losses=losses, global_step=i)
-                self.evaluate_embedding(i)
-                self.model.train()
+                repre_scores, model_scores = self.evaluate_embedding(i)
+                wb.run.log(repre_scores)
+                wb.run.log(model_scores)
 
-        return None   
+                best_path = self.update_best_model(model_scores)
+                if best_path is not None:
+                    print(f"###### new BEST step {i} ^^^ ######")
+                self.model.train()
+            
+            if i % self.save_interval == 0:
+                path = self.save_model_path / f"{wb.run.id}-{self.args.bert}-iter-{i}.pth"
+                torch.save(obj=self.model.state_dict(), f=path.__str__())
+            
+
+        return loss_dic, repre_scores, model_scores   
 
     
     def evaluate_embedding(self, step):
@@ -171,7 +197,7 @@ class SCCLvTrainer(nn.Module):
         kmeans = cluster.KMeans(n_clusters=self.args.num_classes, random_state=self.args.seed)
         embeddings = all_embeddings.cpu().numpy()
         kmeans.fit(embeddings)
-        pred_labels = torch.tensor(kmeans.labels_.astype(np.int))
+        pred_labels = torch.tensor(kmeans.labels_.astype(int))
         
         # clustering accuracy 
         confusion.add(pred_labels, all_labels)
@@ -191,12 +217,45 @@ class SCCLvTrainer(nn.Module):
         # np.save(self.args.resPath + 'embeddings_{}.npy'.format(step), embeddings)
         # np.save(self.args.resPath + 'labels_{}.npy'.format(step), all_labels.cpu())
 
-        print('[Representation] Clustering scores:',confusion.clusterscores()) 
-        print('[Representation] ACC: {:.3f}'.format(acc)) 
-        print('[Model] Clustering scores:',confusion_model.clusterscores()) 
-        print('[Model] ACC: {:.3f}'.format(acc_model))
-        return None
+        repre_scores = confusion.clusterscores()
+        model_scores = confusion.clusterscores()
+        repre_scores_rounded = format_float(dic=repre_scores, ndigit=4)
+        model_scores_rounded = format_float(dic=model_scores, ndigit=4)
+        
+        print(f'Iter {step}: [Representation]  scores: ', repre_scores_rounded) 
+        # print('[Representation] ACC: {:.3f}'.format(acc)) 
+        print(f'Iter {step}:          [Model]  scores: ', model_scores_rounded) 
+        # print('[Model] ACC: {:.3f}'.format(acc_model))
+
+        repre_scores_2 = insert_keyword(dic=repre_scores, word="repre")
+        model_scores_2 = insert_keyword(dic=model_scores, word="model")
+        repre_scores_2["iter"] = step
+        model_scores_2["iter"] = step
+        return repre_scores_2, model_scores_2
 
 
 
-             
+    
+    def train_step_explicit(self, input_ids, attention_mask):
+        
+        embd1, embd2, embd3 = self.model(input_ids, attention_mask, task_type="explicit")
+
+        # Instance-CL loss
+        feat1, feat2 = self.model.contrast_logits(embd2, embd3)
+        losses = self.contrast_loss(feat1, feat2)
+        loss = self.eta * losses["loss"]
+
+        # Clustering loss
+        if self.args.objective == "SCCL":
+            output = self.model.get_cluster_prob(embd1)
+            target = target_distribution(output).detach()
+            
+            cluster_loss = self.cluster_loss((output+1e-08).log(), target)/output.shape[0]
+            loss += cluster_loss
+            losses["cluster_loss"] = cluster_loss.item()
+
+        loss.backward()
+        self.optimizer.step()
+        self.optimizer.zero_grad()
+        return losses
+    

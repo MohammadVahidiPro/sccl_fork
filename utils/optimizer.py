@@ -17,6 +17,7 @@ BERT_CLASS = {
 
 SBERT_CLASS = {
     "distilbert": 'distilbert-base-nli-stsb-mean-tokens',
+    "minilm6": "all-MiniLM-L6-v2"
 }
 
 
@@ -24,8 +25,8 @@ def get_optimizer(model, args):
     
     optimizer = torch.optim.Adam([
         {'params':model.bert.parameters()}, 
-        {'params':model.contrast_head.parameters(), 'lr': args.lr*args.lr_scale},
-        {'params':model.cluster_centers, 'lr': args.lr*args.lr_scale}
+        {'params':model.contrast_head.parameters(), 'lr': args.lr * args.lr_scale},
+        {'params':model.cluster_centers, 'lr': args.lr * args.lr_scale}
     ], lr=args.lr)
     
     print(optimizer)
@@ -49,7 +50,7 @@ def get_bert(args):
 
 
 def get_sbert(args):
-    sbert = SentenceTransformer(SBERT_CLASS[args.bert])
+    sbert = SentenceTransformer(SBERT_CLASS[args.bert], device="cuda")
     return sbert
 
 
