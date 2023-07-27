@@ -1,0 +1,62 @@
+
+results path: results/SCCL.minilm6.SBERT.virtual.searchsnippets.text.lr1e-05.lrscale100.SCCL.eta1.tmp0.5.alpha1.0.seed0/
+..... loading Sentence-BERT !!!
+first-base: all_embeddings:(12340, 384), true_labels:12340, pred_labels:12340
+first-base, Iterations:40, Clustering ACC:0.750, centers:(8, 384)
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+Parameter Group 2
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+)
+ Initializing PairConLoss
+*****Intialize SCCLv, temp:0.5, eta:1
+########################################
+=1000/31=Iterations/Batches
+cannot access local variable 'train_loader_iter' where it is not associated with a value
+[0]-----
+loss:	 5.993
+pos_mean:	 6.828
+neg_mean:	 3.427
+cluster_loss:	 0.006
+---- 31 evaluation batches ----
+Iter 0: [Representation]  scores:  {'ACC': 0.749, 'NMI': 0.5979, 'ARI': 0.564, 'AMI': 0.5975, 'avg': 0.6735}
+Iter 0:          [Model]  scores:  {'ACC': 0.749, 'NMI': 0.5979, 'ARI': 0.564, 'AMI': 0.5975, 'avg': 0.6735}
+###### new BEST step 0 ^^^ ######
+[25]-----
+loss:	 4.856
+pos_mean:	 6.776
+neg_mean:	 1.082
+cluster_loss:	 0.007
+---- 31 evaluation batches ----
+Iter 25: [Representation]  scores:  {'ACC': 0.7624, 'NMI': 0.6226, 'ARI': 0.5871, 'AMI': 0.6222, 'avg': 0.6925}
+Iter 25:          [Model]  scores:  {'ACC': 0.7624, 'NMI': 0.6226, 'ARI': 0.5871, 'AMI': 0.6222, 'avg': 0.6925}

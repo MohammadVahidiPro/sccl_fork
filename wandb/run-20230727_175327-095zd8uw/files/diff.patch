@@ -1,0 +1,145 @@
+diff --git a/__pycache__/training.cpython-311.pyc b/__pycache__/training.cpython-311.pyc
+index 8feaf82..35b4308 100644
+Binary files a/__pycache__/training.cpython-311.pyc and b/__pycache__/training.cpython-311.pyc differ
+diff --git a/main.py b/main.py
+index caae1e3..5d725ea 100644
+--- a/main.py
++++ b/main.py
+@@ -22,9 +22,9 @@ import numpy as np
+ import wandb as wb
+ 
+ def run(args):
+-    with wb.init(project="sccl-2021", mode="offline", config=args) as run:
+-        # run.name = TODO:
+-        # run.tags =
++    with wb.init(project="sccl-2021", mode="online", config=args) as run:
++        run.tags =[args.dataname, args.bert, "A"]
++        run.name = "|".join(run.tags) + "|" + run.id
+         args.resPath, args.tensorboard = setup_path(args)
+         set_global_random_seed(args.seed)
+ 
+@@ -40,6 +40,7 @@ def run(args):
+         # initialize cluster centers
+         cluster_centers, first_base_scores = get_kmeans_centers(bert, tokenizer, train_loader, args.num_classes, args.max_length, keyword="first-base")
+         wb.run.summary.update(first_base_scores)
++        print("first-base kmeans repre scores:", first_base_scores)
+ 
+         model = SCCLBert(bert, tokenizer, cluster_centers=cluster_centers, alpha=args.alpha) 
+         model = model.cuda()
+@@ -51,10 +52,11 @@ def run(args):
+         # optimizer 
+         optimizer = get_optimizer(model, args)
+         trainer = SCCLvTrainer(model, tokenizer, optimizer, train_loader, args)
+-        #loss_dic, repre_scores, model_scores = trainer.train()
++        loss_dic, repre_scores, model_scores = trainer.train()
+         _ , last_base_scores = get_kmeans_centers(bert, tokenizer, train_loader, args.num_classes, args.max_length, keyword="last-base")
+         wb.run.summary.update(last_base_scores)
+         print("##### the final kmeans repre scores: ", last_base_scores)
++
+         return None
+ """
+ def get_args(argv):
+diff --git a/training.py b/training.py
+index 7d39fbd..5598d81 100644
+--- a/training.py
++++ b/training.py
+@@ -34,10 +34,10 @@ class SCCLvTrainer(nn.Module):
+         self.train_loader = train_loader
+         self.args = args
+         self.eta = self.args.eta
+-        self.save_model_path = Path(__file__).parent.resolve() / "models" / self.args.dataname
++        self.save_model_path = Path(__file__).parent.resolve() / "models" / "saved_models" / self.args.dataname
+         self.save_interval = 100
+         self.best_model_scores = None
+-        self.cluster_loss = nn.KLDivLoss(size_average=False)
++        self.cluster_loss = nn.KLDivLoss(reduction="sum")
+         self.contrast_loss = PairConLoss(temperature=self.args.temperature)
+         
+         self.gstep = 0
+@@ -194,7 +194,7 @@ class SCCLvTrainer(nn.Module):
+         confusion_model.optimal_assignment(self.args.num_classes)
+         acc_model = confusion_model.acc()
+ 
+-        kmeans = cluster.KMeans(n_clusters=self.args.num_classes, random_state=self.args.seed)
++        kmeans = cluster.KMeans(n_clusters=self.args.num_classes, random_state=self.args.seed, n_init=20)
+         embeddings = all_embeddings.cpu().numpy()
+         kmeans.fit(embeddings)
+         pred_labels = torch.tensor(kmeans.labels_.astype(int))
+@@ -218,7 +218,7 @@ class SCCLvTrainer(nn.Module):
+         # np.save(self.args.resPath + 'labels_{}.npy'.format(step), all_labels.cpu())
+ 
+         repre_scores = confusion.clusterscores()
+-        model_scores = confusion.clusterscores()
++        model_scores = confusion_model.clusterscores()
+         repre_scores_rounded = format_float(dic=repre_scores, ndigit=4)
+         model_scores_rounded = format_float(dic=model_scores, ndigit=4)
+         
+diff --git a/utils/__pycache__/kmeans.cpython-311.pyc b/utils/__pycache__/kmeans.cpython-311.pyc
+index 8b22593..2bc4d71 100644
+Binary files a/utils/__pycache__/kmeans.cpython-311.pyc and b/utils/__pycache__/kmeans.cpython-311.pyc differ
+diff --git a/utils/__pycache__/logger.cpython-311.pyc b/utils/__pycache__/logger.cpython-311.pyc
+index 7ceb46c..4d8012e 100644
+Binary files a/utils/__pycache__/logger.cpython-311.pyc and b/utils/__pycache__/logger.cpython-311.pyc differ
+diff --git a/utils/kmeans.py b/utils/kmeans.py
+index 6487703..f618406 100644
+--- a/utils/kmeans.py
++++ b/utils/kmeans.py
+@@ -9,6 +9,7 @@ import torch
+ import numpy as np
+ from utils.metric import Confusion
+ from sklearn.cluster import KMeans
++import wandb as wb
+ 
+ insert_keyword = lambda dic, word: dict([(f"{word}/{k}", v) for k, v in dic.items()])
+ format_float = lambda dic, ndigit: dict([(k, round(v, ndigit)) for k, v in dic.items()])
+@@ -35,22 +36,22 @@ def get_kmeans_centers(bert, tokenizer, train_loader, num_classes, max_length, k
+     for i, batch in enumerate(train_loader):
+ 
+         text, label = batch['text'], batch['label']
+-        tokenized_features = get_batch_token(tokenizer, text, max_length)
+-        for tensor in tokenized_features.values():
+-             tensor = tensor.cuda()
++        tokenized_features = get_batch_token(tokenizer, text, max_length).to("cuda")
++        # for tensor in tokenized_features.values():
++            #  tensor = tensor.to("cuda")
+               
+         corpus_embeddings = get_mean_embeddings(bert, **tokenized_features)
+         
+         if i == 0:
+             all_labels = label
+-            all_embeddings = corpus_embeddings.detach().numpy()
++            all_embeddings = corpus_embeddings.detach().cpu().numpy()
+         else:
+             all_labels = torch.cat((all_labels, label), dim=0)
+-            all_embeddings = np.concatenate((all_embeddings, corpus_embeddings.detach().numpy()), axis=0)
++            all_embeddings = np.concatenate((all_embeddings, corpus_embeddings.detach().cpu().numpy()), axis=0)
+ 
+     # Perform KMeans clustering
+     confusion = Confusion(num_classes)
+-    clustering_model = KMeans(n_clusters=num_classes)
++    clustering_model = KMeans(n_clusters=num_classes, n_init=20, random_state=wb.config.seed) # I changed this TODO
+     clustering_model.fit(all_embeddings)
+     cluster_assignment = clustering_model.labels_
+ 
+diff --git a/utils/logger.py b/utils/logger.py
+index 00b0c69..55153d5 100644
+--- a/utils/logger.py
++++ b/utils/logger.py
+@@ -43,7 +43,7 @@ def setup_path(args):
+ 
+ 
+ def statistics_log(tensorboard, losses=None, global_step=0):
+-    print("[{}]-----".format(global_step))
++    # print("[{}]-----".format(global_step))
+     if losses is not None:
+         for key, val in losses.items():
+             if key in ["pos", "neg", "pos_diag", "pos_rand", "neg_offdiag"]:
+@@ -53,7 +53,7 @@ def statistics_log(tensorboard, losses=None, global_step=0):
+                     tensorboard.add_scalar('train/'+key, val.item(), global_step)
+                 except:
+                     tensorboard.add_scalar('train/'+key, val, global_step)
+-                print("{}:\t {:.3f}".format(key, val))
++                # print("{}:\t {:.3f}".format(key, val))
+ 
+ 
+ 

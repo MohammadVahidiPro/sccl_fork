@@ -43,7 +43,7 @@ def setup_path(args):
 
 
 def statistics_log(tensorboard, losses=None, global_step=0):
-    print("[{}]-----".format(global_step))
+    # print("[{}]-----".format(global_step))
     if losses is not None:
         for key, val in losses.items():
             if key in ["pos", "neg", "pos_diag", "pos_rand", "neg_offdiag"]:
@@ -53,7 +53,7 @@ def statistics_log(tensorboard, losses=None, global_step=0):
                     tensorboard.add_scalar('train/'+key, val.item(), global_step)
                 except:
                     tensorboard.add_scalar('train/'+key, val, global_step)
-                print("{}:\t {:.3f}".format(key, val))
+                # print("{}:\t {:.3f}".format(key, val))
 
 
 

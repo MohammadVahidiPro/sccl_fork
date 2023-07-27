@@ -1,0 +1,126 @@
+results path: results/SCCL.minilm6.SBERT.virtual.searchsnippets.text.lr1e-05.lrscale100.SCCL.eta1.tmp0.5.alpha1.0.seed0/
+..... loading Sentence-BERT !!!
+first-base: all_embeddings:(12340, 384), true_labels:12340, pred_labels:12340
+first-base, Iterations:40, Clustering ACC:0.750, centers:(8, 384)
+first-base kmeans repre scores: {'first-base/ACC': 0.749513776337115, 'first-base/NMI': 0.5998754565822467, 'first-base/ARI': 0.5645008988858746, 'first-base/AMI': 0.5994796207602014, 'first-base/avg': 0.6746946164596809}
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+Parameter Group 2
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+)
+ Initializing PairConLoss
+*****Intialize SCCLv, temp:0.5, eta:1
+########################################
+=1000/31=Iterations/Batches
+cannot access local variable 'train_loader_iter' where it is not associated with a value
+Iter 0: [Representation]  scores:  {'ACC': 0.749, 'NMI': 0.5979, 'ARI': 0.564, 'AMI': 0.5975, 'avg': 0.6735}
+Iter 0:          [Model]  scores:  {'ACC': 0.7498, 'NMI': 0.6006, 'ARI': 0.5653, 'AMI': 0.6002, 'avg': 0.6752}
+###### new BEST step 0 ^^^ ######
+Iter 25: [Representation]  scores:  {'ACC': 0.7624, 'NMI': 0.6226, 'ARI': 0.5871, 'AMI': 0.6222, 'avg': 0.6925}
+Iter 25:          [Model]  scores:  {'ACC': 0.7505, 'NMI': 0.6065, 'ARI': 0.5711, 'AMI': 0.6061, 'avg': 0.6785}
+###### new BEST step 25 ^^^ ######
+Iter 50: [Representation]  scores:  {'ACC': 0.7711, 'NMI': 0.6362, 'ARI': 0.6046, 'AMI': 0.6358, 'avg': 0.7036}
+Iter 50:          [Model]  scores:  {'ACC': 0.7554, 'NMI': 0.6114, 'ARI': 0.5805, 'AMI': 0.611, 'avg': 0.6834}
+###### new BEST step 50 ^^^ ######
+Iter 75: [Representation]  scores:  {'ACC': 0.7748, 'NMI': 0.6433, 'ARI': 0.6112, 'AMI': 0.643, 'avg': 0.7091}
+Iter 75:          [Model]  scores:  {'ACC': 0.7578, 'NMI': 0.6139, 'ARI': 0.5852, 'AMI': 0.6135, 'avg': 0.6858}
+###### new BEST step 75 ^^^ ######
+Iter 100: [Representation]  scores:  {'ACC': 0.7798, 'NMI': 0.6517, 'ARI': 0.6203, 'AMI': 0.6514, 'avg': 0.7158}
+Iter 100:          [Model]  scores:  {'ACC': 0.7596, 'NMI': 0.6167, 'ARI': 0.5894, 'AMI': 0.6163, 'avg': 0.6881}
+###### new BEST step 100 ^^^ ######
+Iter 125: [Representation]  scores:  {'ACC': 0.7834, 'NMI': 0.6577, 'ARI': 0.6276, 'AMI': 0.6573, 'avg': 0.7205}
+Iter 125:          [Model]  scores:  {'ACC': 0.7634, 'NMI': 0.6231, 'ARI': 0.5975, 'AMI': 0.6227, 'avg': 0.6932}
+###### new BEST step 125 ^^^ ######
+Iter 150: [Representation]  scores:  {'ACC': 0.7876, 'NMI': 0.6622, 'ARI': 0.635, 'AMI': 0.6618, 'avg': 0.7249}
+Iter 150:          [Model]  scores:  {'ACC': 0.7643, 'NMI': 0.6264, 'ARI': 0.6011, 'AMI': 0.626, 'avg': 0.6954}
+###### new BEST step 150 ^^^ ######
+Iter 175: [Representation]  scores:  {'ACC': 0.7884, 'NMI': 0.6636, 'ARI': 0.6363, 'AMI': 0.6633, 'avg': 0.726}
+Iter 175:          [Model]  scores:  {'ACC': 0.7647, 'NMI': 0.628, 'ARI': 0.603, 'AMI': 0.6277, 'avg': 0.6964}
+###### new BEST step 175 ^^^ ######
+Iter 200: [Representation]  scores:  {'ACC': 0.7879, 'NMI': 0.663, 'ARI': 0.6359, 'AMI': 0.6627, 'avg': 0.7255}
+Iter 200:          [Model]  scores:  {'ACC': 0.7648, 'NMI': 0.6317, 'ARI': 0.6059, 'AMI': 0.6313, 'avg': 0.6983}
+###### new BEST step 200 ^^^ ######
+Iter 225: [Representation]  scores:  {'ACC': 0.7852, 'NMI': 0.6568, 'ARI': 0.6304, 'AMI': 0.6565, 'avg': 0.721}
+Iter 225:          [Model]  scores:  {'ACC': 0.763, 'NMI': 0.6326, 'ARI': 0.6056, 'AMI': 0.6322, 'avg': 0.6978}
+[WinError 5] Access is denied
+Iter 250: [Representation]  scores:  {'ACC': 0.7842, 'NMI': 0.6558, 'ARI': 0.6284, 'AMI': 0.6555, 'avg': 0.72}
+Iter 250:          [Model]  scores:  {'ACC': 0.7606, 'NMI': 0.6345, 'ARI': 0.6056, 'AMI': 0.6342, 'avg': 0.6976}
+Iter 275: [Representation]  scores:  {'ACC': 0.7782, 'NMI': 0.6498, 'ARI': 0.6189, 'AMI': 0.6495, 'avg': 0.714}
+Iter 275:          [Model]  scores:  {'ACC': 0.7588, 'NMI': 0.6359, 'ARI': 0.6054, 'AMI': 0.6355, 'avg': 0.6973}
+Iter 300: [Representation]  scores:  {'ACC': 0.7707, 'NMI': 0.6432, 'ARI': 0.6085, 'AMI': 0.6429, 'avg': 0.707}
+Iter 300:          [Model]  scores:  {'ACC': 0.7542, 'NMI': 0.6332, 'ARI': 0.5995, 'AMI': 0.6328, 'avg': 0.6937}
+Iter 325: [Representation]  scores:  {'ACC': 0.7656, 'NMI': 0.6409, 'ARI': 0.6034, 'AMI': 0.6405, 'avg': 0.7033}
+Iter 325:          [Model]  scores:  {'ACC': 0.7531, 'NMI': 0.6348, 'ARI': 0.5992, 'AMI': 0.6345, 'avg': 0.694}
+Iter 350: [Representation]  scores:  {'ACC': 0.7614, 'NMI': 0.6394, 'ARI': 0.5983, 'AMI': 0.6391, 'avg': 0.7004}
+Iter 350:          [Model]  scores:  {'ACC': 0.7549, 'NMI': 0.6374, 'ARI': 0.6004, 'AMI': 0.637, 'avg': 0.6961}
+Iter 375: [Representation]  scores:  {'ACC': 0.7583, 'NMI': 0.6405, 'ARI': 0.597, 'AMI': 0.6402, 'avg': 0.6994}
+Iter 375:          [Model]  scores:  {'ACC': 0.7552, 'NMI': 0.6415, 'ARI': 0.6007, 'AMI': 0.6411, 'avg': 0.6983}
+###### new BEST step 375 ^^^ ######
+Iter 400: [Representation]  scores:  {'ACC': 0.7567, 'NMI': 0.6451, 'ARI': 0.5999, 'AMI': 0.6447, 'avg': 0.7009}
+Iter 400:          [Model]  scores:  {'ACC': 0.7563, 'NMI': 0.6445, 'ARI': 0.6017, 'AMI': 0.6442, 'avg': 0.7004}
+###### new BEST step 400 ^^^ ######
+Iter 425: [Representation]  scores:  {'ACC': 0.7561, 'NMI': 0.6475, 'ARI': 0.601, 'AMI': 0.6471, 'avg': 0.7018}
+Iter 425:          [Model]  scores:  {'ACC': 0.7568, 'NMI': 0.6481, 'ARI': 0.6042, 'AMI': 0.6477, 'avg': 0.7024}
+###### new BEST step 425 ^^^ ######
+Iter 450: [Representation]  scores:  {'ACC': 0.7556, 'NMI': 0.6486, 'ARI': 0.6007, 'AMI': 0.6483, 'avg': 0.7021}
+Iter 450:          [Model]  scores:  {'ACC': 0.7567, 'NMI': 0.6487, 'ARI': 0.6017, 'AMI': 0.6484, 'avg': 0.7027}
+###### new BEST step 450 ^^^ ######
+Iter 475: [Representation]  scores:  {'ACC': 0.7558, 'NMI': 0.6514, 'ARI': 0.602, 'AMI': 0.6511, 'avg': 0.7036}
+Iter 475:          [Model]  scores:  {'ACC': 0.7563, 'NMI': 0.6513, 'ARI': 0.6021, 'AMI': 0.651, 'avg': 0.7038}
+###### new BEST step 475 ^^^ ######
+Iter 500: [Representation]  scores:  {'ACC': 0.7578, 'NMI': 0.6543, 'ARI': 0.6056, 'AMI': 0.654, 'avg': 0.706}
+Iter 500:          [Model]  scores:  {'ACC': 0.7584, 'NMI': 0.6545, 'ARI': 0.6063, 'AMI': 0.6541, 'avg': 0.7065}
+###### new BEST step 500 ^^^ ######
+Iter 525: [Representation]  scores:  {'ACC': 0.7585, 'NMI': 0.6557, 'ARI': 0.6066, 'AMI': 0.6554, 'avg': 0.7071}
+Iter 525:          [Model]  scores:  {'ACC': 0.7588, 'NMI': 0.6563, 'ARI': 0.6071, 'AMI': 0.656, 'avg': 0.7075}
+###### new BEST step 525 ^^^ ######
+Iter 550: [Representation]  scores:  {'ACC': 0.7599, 'NMI': 0.6582, 'ARI': 0.6094, 'AMI': 0.6579, 'avg': 0.709}
+Iter 550:          [Model]  scores:  {'ACC': 0.7586, 'NMI': 0.6578, 'ARI': 0.608, 'AMI': 0.6575, 'avg': 0.7082}
+###### new BEST step 550 ^^^ ######
+Iter 575: [Representation]  scores:  {'ACC': 0.7603, 'NMI': 0.6594, 'ARI': 0.6106, 'AMI': 0.659, 'avg': 0.7098}
+Iter 575:          [Model]  scores:  {'ACC': 0.7605, 'NMI': 0.6601, 'ARI': 0.6111, 'AMI': 0.6598, 'avg': 0.7103}
+###### new BEST step 575 ^^^ ######
+[WinError 5] Access is denied
+Iter 600: [Representation]  scores:  {'ACC': 0.7612, 'NMI': 0.6623, 'ARI': 0.6121, 'AMI': 0.662, 'avg': 0.7117}
+Iter 600:          [Model]  scores:  {'ACC': 0.7596, 'NMI': 0.6617, 'ARI': 0.6107, 'AMI': 0.6613, 'avg': 0.7106}
+###### new BEST step 600 ^^^ ######
+Iter 625: [Representation]  scores:  {'ACC': 0.763, 'NMI': 0.6643, 'ARI': 0.6158, 'AMI': 0.6639, 'avg': 0.7136}
+Iter 625:          [Model]  scores:  {'ACC': 0.7618, 'NMI': 0.664, 'ARI': 0.6146, 'AMI': 0.6637, 'avg': 0.7129}
+###### new BEST step 625 ^^^ ######
+Iter 650: [Representation]  scores:  {'ACC': 0.7637, 'NMI': 0.6659, 'ARI': 0.6176, 'AMI': 0.6656, 'avg': 0.7148}
+Iter 650:          [Model]  scores:  {'ACC': 0.7622, 'NMI': 0.6655, 'ARI': 0.6166, 'AMI': 0.6651, 'avg': 0.7138}
+###### new BEST step 650 ^^^ ######
+Iter 675: [Representation]  scores:  {'ACC': 0.7634, 'NMI': 0.6666, 'ARI': 0.6173, 'AMI': 0.6663, 'avg': 0.715}
+Iter 675:          [Model]  scores:  {'ACC': 0.7618, 'NMI': 0.6656, 'ARI': 0.6154, 'AMI': 0.6653, 'avg': 0.7137}
+Iter 700: [Representation]  scores:  {'ACC': 0.7643, 'NMI': 0.6667, 'ARI': 0.6185, 'AMI': 0.6663, 'avg': 0.7155}
+Iter 700:          [Model]  scores:  {'ACC': 0.7628, 'NMI': 0.6664, 'ARI': 0.6171, 'AMI': 0.6661, 'avg': 0.7146}

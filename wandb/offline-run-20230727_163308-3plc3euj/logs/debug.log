@@ -1,0 +1,30 @@
+2023-07-27 16:33:08,312 INFO    MainThread:16256 [wandb_setup.py:_flush():76] Current SDK version is 0.15.5
+2023-07-27 16:33:08,313 INFO    MainThread:16256 [wandb_setup.py:_flush():76] Configure stats pid to 16256
+2023-07-27 16:33:08,313 INFO    MainThread:16256 [wandb_setup.py:_flush():76] Loading settings from C:\Users\98914\.config\wandb\settings
+2023-07-27 16:33:08,313 INFO    MainThread:16256 [wandb_setup.py:_flush():76] Loading settings from D:\text_clustering_paper\my-forks\sccl_fork\wandb\settings
+2023-07-27 16:33:08,313 INFO    MainThread:16256 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-07-27 16:33:08,313 INFO    MainThread:16256 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-07-27 16:33:08,318 INFO    MainThread:16256 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program': 'D:\\text_clustering_paper\\my-forks\\sccl_fork\\main.py'}
+2023-07-27 16:33:08,318 INFO    MainThread:16256 [wandb_init.py:_log_setup():507] Logging user logs to D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230727_163308-3plc3euj\logs\debug.log
+2023-07-27 16:33:08,318 INFO    MainThread:16256 [wandb_init.py:_log_setup():508] Logging internal logs to D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230727_163308-3plc3euj\logs\debug-internal.log
+2023-07-27 16:33:08,318 INFO    MainThread:16256 [wandb_init.py:init():547] calling init triggers
+2023-07-27 16:33:08,318 INFO    MainThread:16256 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {'train_instance': 'local', 'gpuid': [0], 'seed': 0, 'print_freq': 25, 'resdir': 'results/', 's3_resdir': 'results', 'bert': 'minilm6', 'use_pretrain': 'SBERT', 'datapath': 'datasets/', 'dataname': 'searchsnippets', 'num_classes': 8, 'max_length': 32, 'label': 'label', 'text': 'text', 'augmentation_1': 'text1', 'augmentation_2': 'text2', 'lr': 1e-05, 'lr_scale': 100, 'max_iter': 1000, 'objective': 'SCCL', 'augtype': 'virtual', 'batch_size': 400, 'temperature': 0.5, 'eta': 1, 'alpha': 1.0, 'use_gpu': True, 'resPath': None, 'tensorboard': None}
+2023-07-27 16:33:08,318 INFO    MainThread:16256 [wandb_init.py:init():596] starting backend
+2023-07-27 16:33:08,318 INFO    MainThread:16256 [wandb_init.py:init():600] setting up manager
+2023-07-27 16:33:08,326 INFO    MainThread:16256 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn, using: spawn
+2023-07-27 16:33:08,330 INFO    MainThread:16256 [wandb_init.py:init():606] backend started and connected
+2023-07-27 16:33:08,333 INFO    MainThread:16256 [wandb_init.py:init():705] updated telemetry
+2023-07-27 16:33:08,385 INFO    MainThread:16256 [wandb_init.py:init():738] communicating run to backend with 60.0 second timeout
+2023-07-27 16:33:08,396 INFO    MainThread:16256 [wandb_init.py:init():789] starting run threads in backend
+2023-07-27 16:33:24,944 INFO    MainThread:16256 [wandb_run.py:_console_start():2152] atexit reg
+2023-07-27 16:33:24,945 INFO    MainThread:16256 [wandb_run.py:_redirect():2007] redirect: 3
+2023-07-27 16:33:24,945 INFO    MainThread:16256 [wandb_run.py:_redirect():2072] Wrapping output streams.
+2023-07-27 16:33:24,945 INFO    MainThread:16256 [wandb_run.py:_redirect():2097] Redirects installed.
+2023-07-27 16:33:24,946 INFO    MainThread:16256 [wandb_init.py:init():830] run started, returning control to user process
+2023-07-27 16:36:14,641 INFO    MainThread:16256 [wandb_run.py:_finish():1887] finishing run sccl-2021/3plc3euj
+2023-07-27 16:36:14,641 INFO    MainThread:16256 [wandb_run.py:_atexit_cleanup():2121] got exitcode: 0
+2023-07-27 16:36:14,642 INFO    MainThread:16256 [wandb_run.py:_restore():2104] restore
+2023-07-27 16:36:14,643 INFO    MainThread:16256 [wandb_run.py:_restore():2110] restore done
+2023-07-27 16:36:15,756 INFO    MainThread:16256 [wandb_run.py:_footer_history_summary_info():3464] rendering history
+2023-07-27 16:36:15,757 INFO    MainThread:16256 [wandb_run.py:_footer_history_summary_info():3496] rendering summary

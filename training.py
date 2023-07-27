@@ -10,6 +10,7 @@ import time
 import numpy as np
 from sklearn import cluster
 import wandb as wb
+from time import time
 from pathlib import Path
 from utils.logger import statistics_log
 from utils.metric import Confusion
@@ -34,17 +35,18 @@ class SCCLvTrainer(nn.Module):
         self.train_loader = train_loader
         self.args = args
         self.eta = self.args.eta
-        self.save_model_path = Path(__file__).parent.resolve() / "models" / self.args.dataname
+        self.save_model_path = Path(__file__).parent.resolve() / "models" / "saved_models" / self.args.dataname
         self.save_interval = 100
         self.best_model_scores = None
-        self.cluster_loss = nn.KLDivLoss(size_average=False)
+        self.cluster_loss = nn.KLDivLoss(reduction="sum")
         self.contrast_loss = PairConLoss(temperature=self.args.temperature)
         
         self.gstep = 0
         print(f"*****Intialize SCCLv, temp:{self.args.temperature}, eta:{self.args.eta}\n")
     
     def update_best_model(self, current_model):
-        if self.best_model_scores is None or current_model["avg"] > self.best_model_scores["best/avg"]:
+        # print(current_model.keys())
+        if self.best_model_scores is None or current_model["model/avg"] > self.best_model_scores["best/model/avg"]:
             # self.best_model_scores = copy.deepcopy(current_model)
             self.best_model_scores =  dict([(f"best/{k}", v) for k, v in current_model.items()])
             
@@ -132,6 +134,7 @@ class SCCLvTrainer(nn.Module):
         print('\n={}/{}=Iterations/Batches'.format(self.args.max_iter, len(self.train_loader)))
         wb.watch(self.model)
         self.model.train()
+        # t0 = time()
         for i in np.arange(self.args.max_iter+1):
             try:
                 batch = next(train_loader_iter)
@@ -167,7 +170,7 @@ class SCCLvTrainer(nn.Module):
     
     def evaluate_embedding(self, step):
         dataloader = unshuffle_loader(self.args)
-        print('---- {} evaluation batches ----'.format(len(dataloader)))
+        # print('---- {} evaluation batches ----'.format(len(dataloader)))
         
         self.model.eval()
         for i, batch in enumerate(dataloader):
@@ -194,7 +197,7 @@ class SCCLvTrainer(nn.Module):
         confusion_model.optimal_assignment(self.args.num_classes)
         acc_model = confusion_model.acc()
 
-        kmeans = cluster.KMeans(n_clusters=self.args.num_classes, random_state=self.args.seed)
+        kmeans = cluster.KMeans(n_clusters=self.args.num_classes, random_state=self.args.seed, n_init=20)
         embeddings = all_embeddings.cpu().numpy()
         kmeans.fit(embeddings)
         pred_labels = torch.tensor(kmeans.labels_.astype(int))
@@ -218,7 +221,7 @@ class SCCLvTrainer(nn.Module):
         # np.save(self.args.resPath + 'labels_{}.npy'.format(step), all_labels.cpu())
 
         repre_scores = confusion.clusterscores()
-        model_scores = confusion.clusterscores()
+        model_scores = confusion_model.clusterscores()
         repre_scores_rounded = format_float(dic=repre_scores, ndigit=4)
         model_scores_rounded = format_float(dic=model_scores, ndigit=4)
         
