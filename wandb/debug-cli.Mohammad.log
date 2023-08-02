@@ -192,3 +192,131 @@
 2023-08-02 07:11:27 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\requirements.txt
 2023-08-02 07:11:32 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\wandb-summary.json
 2023-08-02 07:11:32 INFO send defer: 11
+2023-08-02 11:42:06 INFO open for scan: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\run-a6zhmfw7.wandb
+2023-08-02 11:42:07 INFO watching files in: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files
+2023-08-02 11:42:07 INFO run started: a6zhmfw7 with start time 1690956166.561266
+2023-08-02 11:42:07 INFO saving file wandb-metadata.json with policy now
+2023-08-02 11:42:07 INFO saving file code\main.py with policy now
+2023-08-02 11:42:07 INFO saving file diff.patch with policy now
+2023-08-02 11:42:08 INFO updated run: a6zhmfw7
+2023-08-02 11:42:08 INFO updated run: a6zhmfw7
+2023-08-02 11:42:08 INFO saving file wandb-summary.json with policy end
+2023-08-02 11:42:08 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\wandb-summary.json
+2023-08-02 11:42:08 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\config.yaml
+2023-08-02 11:42:08 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\output.log
+2023-08-02 11:42:10 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\output.log
+2023-08-02 11:42:10 INFO Uploaded file C:\Users\98914\AppData\Local\Temp\tmpnl9w3es9wandb\soqmhjun-wandb-metadata.json
+2023-08-02 11:42:11 INFO sent artifact job-https___github.com_MohammadVahidiPro_sccl_fork.git_main.py - {'id': 'QXJ0aWZhY3Q6NTMwMDAwODAz', 'digest': '22d547fd6b1762f4b184911254f723ce', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_MohammadVahidiPro_sccl_fork.git_main.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_MohammadVahidiPro_sccl_fork.git_main.py', 'alias': 'v14'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg2MDY1OTk3', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTMwMDAwODAz', 'versionIndex': 14}}, 'version': 'v14'}
+2023-08-02 11:42:11 INFO shutting down sender
+2023-08-02 11:42:12 INFO shutting down directory watcher
+2023-08-02 11:42:12 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\output.log
+2023-08-02 11:42:12 INFO scan: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files
+2023-08-02 11:42:12 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\conda-environment.yaml conda-environment.yaml
+2023-08-02 11:42:12 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\config.yaml config.yaml
+2023-08-02 11:42:12 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\diff.patch diff.patch
+2023-08-02 11:42:12 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\output.log output.log
+2023-08-02 11:42:12 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\requirements.txt requirements.txt
+2023-08-02 11:42:12 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch
+2023-08-02 11:42:12 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\wandb-metadata.json wandb-metadata.json
+2023-08-02 11:42:12 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\wandb-summary.json wandb-summary.json
+2023-08-02 11:42:12 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\code\main.py code/main.py
+2023-08-02 11:42:12 INFO shutting down file pusher
+2023-08-02 11:42:12 INFO waiting for file pusher
+2023-08-02 11:42:14 INFO Uploaded file C:\Users\98914\AppData\Local\Temp\tmpnl9w3es9wandb\o9dbd8nf-code/main.py
+2023-08-02 11:42:17 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\conda-environment.yaml
+2023-08-02 11:42:21 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\requirements.txt
+2023-08-02 11:42:22 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\config.yaml
+2023-08-02 11:42:23 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\output.log
+2023-08-02 11:42:23 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\run-20230802_093246-a6zhmfw7\files\wandb-summary.json
+2023-08-02 11:43:01 INFO Uploaded file C:\Users\98914\AppData\Local\Temp\tmpnl9w3es9wandb\2rus18eq-diff.patch
+2023-08-02 11:48:10 ERROR upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/mohammadvahidi-pro/sccl-2021/a6zhmfw7/upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch?Expires=1691050336&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=LFvugqCAGCls%2BoT0UudGRfuZc%2B6FMeTL8HezPIneC8%2FSFL5PK8leJQPbGqDrXbv0jyw2Dvn72DgLsqwYbxpAf5r6LX%2BY2tTIIemfmCLlhPEu3JuWsyIkyyNoIFlWV5%2FQTzGEv8UkTiXnyqrbZ6XZJ6vy4HajvKeKypd6iVspwfU3QbsajUEIrMPFXHoy6rusfJtdHBueEnx3qxZ34Nh0vNH2CZ9b37%2FnI8aYtOIrQJ1G1ueQU3NWJrT4jSIm6nmAk3OLHHudfBti2aA9vEzx00VdrZ3RYSTcSYh7MsJdPHkqCzEe3ahiRwGKYsejx7zv0lM2sBcSiALqZuIURflkDg%3D%3D: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/mohammadvahidi-pro/sccl-2021/a6zhmfw7/upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch?Expires=1691050336&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=LFvugqCAGCls%2BoT0UudGRfuZc%2B6FMeTL8HezPIneC8%2FSFL5PK8leJQPbGqDrXbv0jyw2Dvn72DgLsqwYbxpAf5r6LX%2BY2tTIIemfmCLlhPEu3JuWsyIkyyNoIFlWV5%2FQTzGEv8UkTiXnyqrbZ6XZJ6vy4HajvKeKypd6iVspwfU3QbsajUEIrMPFXHoy6rusfJtdHBueEnx3qxZ34Nh0vNH2CZ9b37%2FnI8aYtOIrQJ1G1ueQU3NWJrT4jSIm6nmAk3OLHHudfBti2aA9vEzx00VdrZ3RYSTcSYh7MsJdPHkqCzEe3ahiRwGKYsejx7zv0lM2sBcSiALqZuIURflkDg%3D%3D (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2423)')))
+2023-08-02 11:48:10 ERROR upload_file request headers: {'User-Agent': 'python-requests/2.29.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '277343016'}
+2023-08-02 11:48:10 ERROR upload_file response body: 
+2023-08-02 11:51:03 ERROR upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/mohammadvahidi-pro/sccl-2021/a6zhmfw7/upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch?Expires=1691050336&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=LFvugqCAGCls%2BoT0UudGRfuZc%2B6FMeTL8HezPIneC8%2FSFL5PK8leJQPbGqDrXbv0jyw2Dvn72DgLsqwYbxpAf5r6LX%2BY2tTIIemfmCLlhPEu3JuWsyIkyyNoIFlWV5%2FQTzGEv8UkTiXnyqrbZ6XZJ6vy4HajvKeKypd6iVspwfU3QbsajUEIrMPFXHoy6rusfJtdHBueEnx3qxZ34Nh0vNH2CZ9b37%2FnI8aYtOIrQJ1G1ueQU3NWJrT4jSIm6nmAk3OLHHudfBti2aA9vEzx00VdrZ3RYSTcSYh7MsJdPHkqCzEe3ahiRwGKYsejx7zv0lM2sBcSiALqZuIURflkDg%3D%3D: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/mohammadvahidi-pro/sccl-2021/a6zhmfw7/upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch?Expires=1691050336&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=LFvugqCAGCls%2BoT0UudGRfuZc%2B6FMeTL8HezPIneC8%2FSFL5PK8leJQPbGqDrXbv0jyw2Dvn72DgLsqwYbxpAf5r6LX%2BY2tTIIemfmCLlhPEu3JuWsyIkyyNoIFlWV5%2FQTzGEv8UkTiXnyqrbZ6XZJ6vy4HajvKeKypd6iVspwfU3QbsajUEIrMPFXHoy6rusfJtdHBueEnx3qxZ34Nh0vNH2CZ9b37%2FnI8aYtOIrQJ1G1ueQU3NWJrT4jSIm6nmAk3OLHHudfBti2aA9vEzx00VdrZ3RYSTcSYh7MsJdPHkqCzEe3ahiRwGKYsejx7zv0lM2sBcSiALqZuIURflkDg%3D%3D (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2423)')))
+2023-08-02 11:51:03 ERROR upload_file request headers: {'User-Agent': 'python-requests/2.29.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '277343016'}
+2023-08-02 11:51:03 ERROR upload_file response body: 
+2023-08-02 11:51:21 ERROR upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/mohammadvahidi-pro/sccl-2021/a6zhmfw7/upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch?Expires=1691050336&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=LFvugqCAGCls%2BoT0UudGRfuZc%2B6FMeTL8HezPIneC8%2FSFL5PK8leJQPbGqDrXbv0jyw2Dvn72DgLsqwYbxpAf5r6LX%2BY2tTIIemfmCLlhPEu3JuWsyIkyyNoIFlWV5%2FQTzGEv8UkTiXnyqrbZ6XZJ6vy4HajvKeKypd6iVspwfU3QbsajUEIrMPFXHoy6rusfJtdHBueEnx3qxZ34Nh0vNH2CZ9b37%2FnI8aYtOIrQJ1G1ueQU3NWJrT4jSIm6nmAk3OLHHudfBti2aA9vEzx00VdrZ3RYSTcSYh7MsJdPHkqCzEe3ahiRwGKYsejx7zv0lM2sBcSiALqZuIURflkDg%3D%3D: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/mohammadvahidi-pro/sccl-2021/a6zhmfw7/upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch?Expires=1691050336&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=LFvugqCAGCls%2BoT0UudGRfuZc%2B6FMeTL8HezPIneC8%2FSFL5PK8leJQPbGqDrXbv0jyw2Dvn72DgLsqwYbxpAf5r6LX%2BY2tTIIemfmCLlhPEu3JuWsyIkyyNoIFlWV5%2FQTzGEv8UkTiXnyqrbZ6XZJ6vy4HajvKeKypd6iVspwfU3QbsajUEIrMPFXHoy6rusfJtdHBueEnx3qxZ34Nh0vNH2CZ9b37%2FnI8aYtOIrQJ1G1ueQU3NWJrT4jSIm6nmAk3OLHHudfBti2aA9vEzx00VdrZ3RYSTcSYh7MsJdPHkqCzEe3ahiRwGKYsejx7zv0lM2sBcSiALqZuIURflkDg%3D%3D (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2423)')))
+2023-08-02 11:51:21 ERROR upload_file request headers: {'User-Agent': 'python-requests/2.29.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '277343016'}
+2023-08-02 11:51:21 ERROR upload_file response body: 
+2023-08-02 11:51:23 INFO Retry attempt failed:
+Traceback (most recent call last):
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\urllib3\connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\urllib3\connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\http\client.py", line 1283, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\http\client.py", line 1329, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\http\client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\http\client.py", line 1077, in _send_output
+    self.send(chunk)
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\http\client.py", line 999, in send
+    self.sock.sendall(data)
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\ssl.py", line 1241, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\ssl.py", line 1210, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:2423)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\requests\adapters.py", line 487, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/mohammadvahidi-pro/sccl-2021/a6zhmfw7/upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch?Expires=1691050336&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=LFvugqCAGCls%2BoT0UudGRfuZc%2B6FMeTL8HezPIneC8%2FSFL5PK8leJQPbGqDrXbv0jyw2Dvn72DgLsqwYbxpAf5r6LX%2BY2tTIIemfmCLlhPEu3JuWsyIkyyNoIFlWV5%2FQTzGEv8UkTiXnyqrbZ6XZJ6vy4HajvKeKypd6iVspwfU3QbsajUEIrMPFXHoy6rusfJtdHBueEnx3qxZ34Nh0vNH2CZ9b37%2FnI8aYtOIrQJ1G1ueQU3NWJrT4jSIm6nmAk3OLHHudfBti2aA9vEzx00VdrZ3RYSTcSYh7MsJdPHkqCzEe3ahiRwGKYsejx7zv0lM2sBcSiALqZuIURflkDg%3D%3D (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2423)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\wandb\sdk\internal\internal_api.py", line 2282, in upload_file
+    response = self._upload_file_session.put(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\requests\sessions.py", line 647, in put
+    return self.request("PUT", url, data=data, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\requests\adapters.py", line 518, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Max retries exceeded with url: /wandb-production.appspot.com/mohammadvahidi-pro/sccl-2021/a6zhmfw7/upstream_diff_94cb2df46703d3266d43f731c56849ac84c15bc0.patch?Expires=1691050336&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=LFvugqCAGCls%2BoT0UudGRfuZc%2B6FMeTL8HezPIneC8%2FSFL5PK8leJQPbGqDrXbv0jyw2Dvn72DgLsqwYbxpAf5r6LX%2BY2tTIIemfmCLlhPEu3JuWsyIkyyNoIFlWV5%2FQTzGEv8UkTiXnyqrbZ6XZJ6vy4HajvKeKypd6iVspwfU3QbsajUEIrMPFXHoy6rusfJtdHBueEnx3qxZ34Nh0vNH2CZ9b37%2FnI8aYtOIrQJ1G1ueQU3NWJrT4jSIm6nmAk3OLHHudfBti2aA9vEzx00VdrZ3RYSTcSYh7MsJdPHkqCzEe3ahiRwGKYsejx7zv0lM2sBcSiALqZuIURflkDg%3D%3D (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2423)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\wandb\sdk\lib\retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\wandb\sdk\internal\internal_api.py", line 2311, in upload_file
+    raise _e.with_traceback(sys.exc_info()[2])
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\wandb\sdk\internal\internal_api.py", line 2282, in upload_file
+    response = self._upload_file_session.put(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\requests\sessions.py", line 647, in put
+    return self.request("PUT", url, data=data, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\98914\anaconda3\envs\clonetop2_sccl\Lib\site-packages\requests\adapters.py", line 518, in send
+    raise SSLError(e, request=request)
+wandb.sdk.lib.retry.TransientError: None

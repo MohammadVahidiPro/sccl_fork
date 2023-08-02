@@ -29,7 +29,7 @@ def run(args):
         current_run.name = "|".join(current_run.tags) + "|" + current_run.id
         args.resPath, args.tensorboard = setup_path(args)
         set_global_random_seed(args.seed)
-
+        
         # dataset loader
         train_loader = dataloader.explict_augmentation_loader(args) if args.augtype == "explicit" else dataloader.virtual_augmentation_loader(args)
 
@@ -62,7 +62,7 @@ def run(args):
         _ , last_base_scores = get_kmeans_centers(bert, tokenizer, train_loader, args.num_classes, args.max_length, keyword="last-base")
         wb.run.summary.update(last_base_scores)
         print("##### the final kmeans repre scores: ", last_base_scores)
-
+        
         return None
 """
 def get_args(argv):
