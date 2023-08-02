@@ -1,0 +1,78 @@
+results path: results/SCCL.minilm6.SBERT.virtual.searchsnippets.text.lr1e-05.lrscale100.SCCL.eta10.tmp0.5.alpha1.0.seed42/
+..... loading Sentence-BERT !!!
+first-base: all_embeddings:(12340, 384), true_labels:12340, pred_labels:12340
+first-base, Iterations:28, Clustering ACC:0.752, centers:(8, 384)
+first-base kmeans repre scores: {'first-base/ACC': 0.7515397082658023, 'first-base/NMI': 0.6012129361388521, 'first-base/ARI': 0.5683042187111996, 'first-base/AMI': 0.6008185095184009, 'first-base/avg': 0.6763763222023271}
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+Parameter Group 2
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+)
+ Initializing PairConLoss
+*****Intialize SCCLv, temp:0.5, eta:10
+########################################
+=226/25=Iterations/Batches
+cannot access local variable 'train_loader_iter' where it is not associated with a value
+Iter 0: [Representation]  scores:  {'ACC': 0.7507, 'NMI': 0.601, 'ARI': 0.5668, 'AMI': 0.6007, 'avg': 0.6759}
+Iter 0:          [Model]  scores:  {'ACC': 0.7523, 'NMI': 0.6016, 'ARI': 0.5699, 'AMI': 0.6012, 'avg': 0.6769}
+###### new BEST step 0 ^^^ ######
+Iter 25: [Representation]  scores:  {'ACC': 0.7625, 'NMI': 0.6235, 'ARI': 0.5882, 'AMI': 0.6231, 'avg': 0.693}
+Iter 25:          [Model]  scores:  {'ACC': 0.7549, 'NMI': 0.609, 'ARI': 0.5785, 'AMI': 0.6086, 'avg': 0.6819}
+###### new BEST step 25 ^^^ ######
+Iter 50: [Representation]  scores:  {'ACC': 0.7709, 'NMI': 0.6357, 'ARI': 0.6045, 'AMI': 0.6353, 'avg': 0.7033}
+Iter 50:          [Model]  scores:  {'ACC': 0.7579, 'NMI': 0.6123, 'ARI': 0.5843, 'AMI': 0.6119, 'avg': 0.6851}
+###### new BEST step 50 ^^^ ######
+Iter 75: [Representation]  scores:  {'ACC': 0.7754, 'NMI': 0.6435, 'ARI': 0.6126, 'AMI': 0.6432, 'avg': 0.7095}
+Iter 75:          [Model]  scores:  {'ACC': 0.7584, 'NMI': 0.6124, 'ARI': 0.5858, 'AMI': 0.612, 'avg': 0.6854}
+###### new BEST step 75 ^^^ ######
+Iter 100: [Representation]  scores:  {'ACC': 0.7758, 'NMI': 0.6462, 'ARI': 0.6139, 'AMI': 0.6458, 'avg': 0.711}
+Iter 100:          [Model]  scores:  {'ACC': 0.7601, 'NMI': 0.6141, 'ARI': 0.5896, 'AMI': 0.6137, 'avg': 0.6871}
+###### new BEST step 100 ^^^ ######
+Iter 125: [Representation]  scores:  {'ACC': 0.7809, 'NMI': 0.6535, 'ARI': 0.6233, 'AMI': 0.6531, 'avg': 0.7172}
+Iter 125:          [Model]  scores:  {'ACC': 0.7613, 'NMI': 0.6167, 'ARI': 0.5932, 'AMI': 0.6163, 'avg': 0.689}
+###### new BEST step 125 ^^^ ######
+Iter 150: [Representation]  scores:  {'ACC': 0.7824, 'NMI': 0.6559, 'ARI': 0.6264, 'AMI': 0.6555, 'avg': 0.7191}
+Iter 150:          [Model]  scores:  {'ACC': 0.7609, 'NMI': 0.617, 'ARI': 0.5933, 'AMI': 0.6166, 'avg': 0.6889}
+Iter 175: [Representation]  scores:  {'ACC': 0.7838, 'NMI': 0.6581, 'ARI': 0.6285, 'AMI': 0.6577, 'avg': 0.7209}
+Iter 175:          [Model]  scores:  {'ACC': 0.7618, 'NMI': 0.6182, 'ARI': 0.5953, 'AMI': 0.6178, 'avg': 0.69}
+###### new BEST step 175 ^^^ ######
+Iter 200: [Representation]  scores:  {'ACC': 0.7839, 'NMI': 0.66, 'ARI': 0.6299, 'AMI': 0.6596, 'avg': 0.7219}
+Iter 200:          [Model]  scores:  {'ACC': 0.7615, 'NMI': 0.6185, 'ARI': 0.5969, 'AMI': 0.6181, 'avg': 0.69}
+Iter 225: [Representation]  scores:  {'ACC': 0.7861, 'NMI': 0.6636, 'ARI': 0.6349, 'AMI': 0.6633, 'avg': 0.7249}
+Iter 225:          [Model]  scores:  {'ACC': 0.7599, 'NMI': 0.6188, 'ARI': 0.5953, 'AMI': 0.6184, 'avg': 0.6893}
+Iter 226: [Representation]  scores:  {'ACC': 0.7842, 'NMI': 0.6604, 'ARI': 0.6309, 'AMI': 0.6601, 'avg': 0.7223}
+Iter 226:          [Model]  scores:  {'ACC': 0.7605, 'NMI': 0.6198, 'ARI': 0.5964, 'AMI': 0.6194, 'avg': 0.6902}
+###### new BEST step 226 ^^^ ######
+last-base: all_embeddings:(12340, 384), true_labels:12340, pred_labels:12340
+last-base, Iterations:16, Clustering ACC:0.785, centers:(8, 384)
+##### the final kmeans repre scores:  {'last-base/ACC': 0.7846839546191248, 'last-base/NMI': 0.6613253824503665, 'last-base/ARI': 0.631673333927322, 'last-base/AMI': 0.6609897600151386, 'last-base/avg': 0.7230046685347457}

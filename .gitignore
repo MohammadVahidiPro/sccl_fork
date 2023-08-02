@@ -1,2 +1,6 @@
 
 *.DESKTOP-59KKEO0
+*.pth
+*.npy
+*.wandb
+*.patch

@@ -24,8 +24,8 @@ from torch.nn import functional as F
 from learner.cluster_utils import target_distribution
 from learner.contrastive_utils import PairConLoss
 
-insert_keyword = lambda dic, word: dict([(f"{word}/{k}", v) for k, v in dic.items()])
-format_float = lambda dic, ndigit: dict([(k, round(v, ndigit)) for k, v in dic.items()])
+insert_keyword = lambda dic, word: {f"{word}/{k}": v                for k, v in dic.items()}
+format_float = lambda dic, ndigit: {k            : round(v, ndigit) for k, v in dic.items()}
 class SCCLvTrainer(nn.Module): 
     def __init__(self, model, tokenizer, optimizer, train_loader, args):
         super(SCCLvTrainer, self).__init__()
@@ -38,6 +38,7 @@ class SCCLvTrainer(nn.Module):
         self.save_model_path = Path(__file__).parent.resolve() / "models" / "saved_models" / self.args.dataname
         self.save_interval = 100
         self.best_model_scores = None
+        self.num_best_updates = 0
         self.cluster_loss = nn.KLDivLoss(reduction="sum")
         self.contrast_loss = PairConLoss(temperature=self.args.temperature)
         
@@ -46,20 +47,17 @@ class SCCLvTrainer(nn.Module):
     
     def update_best_model(self, current_model):
         # print(current_model.keys())
+        path = None
         if self.best_model_scores is None or current_model["model/avg"] > self.best_model_scores["best/model/avg"]:
             # self.best_model_scores = copy.deepcopy(current_model)
-            self.best_model_scores =  dict([(f"best/{k}", v) for k, v in current_model.items()])
+            self.best_model_scores =  {f"best/{k}": v for k, v in current_model.items()}
             
             wb.run.summary.update(self.best_model_scores)
             wb.run.log(self.best_model_scores)
-            
+            self.num_best_updates += 1
             path = self.save_model_path / f"{wb.run.id}-{self.args.bert}-best-model.pth"
             torch.save(obj=self.model.state_dict(), f=path.__str__())
-
-
-            
-            return path
-        return None
+        return path
             # self.model()
 
     def get_batch_token(self, text):
@@ -101,16 +99,17 @@ class SCCLvTrainer(nn.Module):
         # Instance-CL loss
         feat1, feat2 = self.model.contrast_logits(embd1, embd2)
         losses = self.contrast_loss(feat1, feat2)
-        constrastive_loss_value = losses["loss"].item()
+        # contrastive_loss_value = losses["loss"].item()
         loss = self.eta * losses["loss"]
-        
+        contrastive_loss_value = loss.item()
         # Clustering loss
         if self.args.objective == "SCCL":
             output = self.model.get_cluster_prob(embd1)
             target = target_distribution(output).detach()
             
             cluster_loss = self.cluster_loss((output+1e-08).log(), target) / output.shape[0]
-            loss += 0.5 * cluster_loss
+            cluster_loss *= 0.5
+            loss += cluster_loss
             cluster_loss_value = cluster_loss.item()
             losses["cluster_loss"] = cluster_loss_value
 
@@ -120,7 +119,7 @@ class SCCLvTrainer(nn.Module):
 
         wb_dic = {
             "all-loss": loss.item(),
-            "contrast-loss": constrastive_loss_value,
+            "contrast-loss": contrastive_loss_value,
             "cluster-loss": cluster_loss_value,
             "iter": itr
             }
@@ -164,7 +163,8 @@ class SCCLvTrainer(nn.Module):
                 path = self.save_model_path / f"{wb.run.id}-{self.args.bert}-iter-{i}.pth"
                 torch.save(obj=self.model.state_dict(), f=path.__str__())
             
-
+        
+        wb.run.summary["num-best-updates"] = self.num_best_updates
         return loss_dic, repre_scores, model_scores   
 
     

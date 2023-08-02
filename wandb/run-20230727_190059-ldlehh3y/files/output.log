@@ -124,3 +124,39 @@ Iter 675: [Representation]  scores:  {'ACC': 0.7634, 'NMI': 0.6666, 'ARI': 0.617
 Iter 675:          [Model]  scores:  {'ACC': 0.7618, 'NMI': 0.6656, 'ARI': 0.6154, 'AMI': 0.6653, 'avg': 0.7137}
 Iter 700: [Representation]  scores:  {'ACC': 0.7643, 'NMI': 0.6667, 'ARI': 0.6185, 'AMI': 0.6663, 'avg': 0.7155}
 Iter 700:          [Model]  scores:  {'ACC': 0.7628, 'NMI': 0.6664, 'ARI': 0.6171, 'AMI': 0.6661, 'avg': 0.7146}
+###### new BEST step 700 ^^^ ######
+Iter 725: [Representation]  scores:  {'ACC': 0.7639, 'NMI': 0.6675, 'ARI': 0.6176, 'AMI': 0.6672, 'avg': 0.7157}
+Iter 725:          [Model]  scores:  {'ACC': 0.7633, 'NMI': 0.6679, 'ARI': 0.6177, 'AMI': 0.6676, 'avg': 0.7156}
+###### new BEST step 725 ^^^ ######
+Iter 750: [Representation]  scores:  {'ACC': 0.7646, 'NMI': 0.6685, 'ARI': 0.6193, 'AMI': 0.6681, 'avg': 0.7165}
+Iter 750:          [Model]  scores:  {'ACC': 0.7646, 'NMI': 0.669, 'ARI': 0.6193, 'AMI': 0.6687, 'avg': 0.7168}
+###### new BEST step 750 ^^^ ######
+Iter 775: [Representation]  scores:  {'ACC': 0.7652, 'NMI': 0.6695, 'ARI': 0.6204, 'AMI': 0.6692, 'avg': 0.7173}
+Iter 775:          [Model]  scores:  {'ACC': 0.7639, 'NMI': 0.6689, 'ARI': 0.6194, 'AMI': 0.6686, 'avg': 0.7164}
+Iter 800: [Representation]  scores:  {'ACC': 0.7652, 'NMI': 0.67, 'ARI': 0.6207, 'AMI': 0.6697, 'avg': 0.7176}
+Iter 800:          [Model]  scores:  {'ACC': 0.7643, 'NMI': 0.6699, 'ARI': 0.6202, 'AMI': 0.6696, 'avg': 0.7171}
+###### new BEST step 800 ^^^ ######
+Iter 825: [Representation]  scores:  {'ACC': 0.7649, 'NMI': 0.6702, 'ARI': 0.6202, 'AMI': 0.6699, 'avg': 0.7176}
+Iter 825:          [Model]  scores:  {'ACC': 0.7643, 'NMI': 0.6707, 'ARI': 0.6199, 'AMI': 0.6704, 'avg': 0.7175}
+###### new BEST step 825 ^^^ ######
+Iter 850: [Representation]  scores:  {'ACC': 0.7648, 'NMI': 0.6698, 'ARI': 0.62, 'AMI': 0.6695, 'avg': 0.7173}
+Iter 850:          [Model]  scores:  {'ACC': 0.7639, 'NMI': 0.6692, 'ARI': 0.619, 'AMI': 0.6688, 'avg': 0.7166}
+Iter 875: [Representation]  scores:  {'ACC': 0.766, 'NMI': 0.6716, 'ARI': 0.6223, 'AMI': 0.6713, 'avg': 0.7188}
+Iter 875:          [Model]  scores:  {'ACC': 0.7654, 'NMI': 0.6713, 'ARI': 0.6215, 'AMI': 0.671, 'avg': 0.7183}
+###### new BEST step 875 ^^^ ######
+Iter 900: [Representation]  scores:  {'ACC': 0.7662, 'NMI': 0.672, 'ARI': 0.6228, 'AMI': 0.6717, 'avg': 0.7191}
+Iter 900:          [Model]  scores:  {'ACC': 0.7659, 'NMI': 0.6716, 'ARI': 0.6221, 'AMI': 0.6713, 'avg': 0.7188}
+###### new BEST step 900 ^^^ ######
+Iter 925: [Representation]  scores:  {'ACC': 0.7667, 'NMI': 0.6722, 'ARI': 0.6236, 'AMI': 0.6719, 'avg': 0.7195}
+Iter 925:          [Model]  scores:  {'ACC': 0.7663, 'NMI': 0.672, 'ARI': 0.6233, 'AMI': 0.6717, 'avg': 0.7191}
+###### new BEST step 925 ^^^ ######
+Iter 950: [Representation]  scores:  {'ACC': 0.7664, 'NMI': 0.6722, 'ARI': 0.6228, 'AMI': 0.6719, 'avg': 0.7193}
+Iter 950:          [Model]  scores:  {'ACC': 0.7656, 'NMI': 0.6721, 'ARI': 0.6222, 'AMI': 0.6718, 'avg': 0.7189}
+Iter 975: [Representation]  scores:  {'ACC': 0.7667, 'NMI': 0.672, 'ARI': 0.623, 'AMI': 0.6717, 'avg': 0.7194}
+Iter 975:          [Model]  scores:  {'ACC': 0.766, 'NMI': 0.6717, 'ARI': 0.6223, 'AMI': 0.6714, 'avg': 0.7188}
+Iter 1000: [Representation]  scores:  {'ACC': 0.7667, 'NMI': 0.6719, 'ARI': 0.6233, 'AMI': 0.6716, 'avg': 0.7193}
+Iter 1000:          [Model]  scores:  {'ACC': 0.7668, 'NMI': 0.6722, 'ARI': 0.6234, 'AMI': 0.6719, 'avg': 0.7195}
+###### new BEST step 1000 ^^^ ######
+last-base: all_embeddings:(12340, 384), true_labels:12340, pred_labels:12340
+last-base, Iterations:3, Clustering ACC:0.769, centers:(8, 384)
+##### the final kmeans repre scores:  {'last-base/ACC': 0.7686385737439222, 'last-base/NMI': 0.6739625722347932, 'last-base/ARI': 0.6264528826319105, 'last-base/AMI': 0.6736416118902023, 'last-base/avg': 0.7213005729893577}

@@ -1,0 +1,194 @@
+2023-07-31 15:30:47 INFO open for scan: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\run-hudimgb2.wandb
+2023-07-31 15:30:49 INFO watching files in: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files
+2023-07-31 15:30:49 INFO run started: hudimgb2 with start time 1690747043.280512
+2023-07-31 15:30:49 INFO saving file wandb-metadata.json with policy now
+2023-07-31 15:30:50 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\config.yaml
+2023-07-31 15:30:51 INFO updated run: hudimgb2
+2023-07-31 15:30:51 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\config.yaml
+2023-07-31 15:30:52 INFO Uploaded file C:\Users\98914\AppData\Local\Temp\tmp4j97lye_wandb\x7otg7uf-wandb-metadata.json
+2023-07-31 15:30:53 INFO updated run: hudimgb2
+2023-07-31 15:30:53 INFO file/dir created: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\output.log
+2023-07-31 15:30:54 INFO saving file wandb-summary.json with policy end
+2023-07-31 15:30:54 INFO handling exit code: 0
+2023-07-31 15:30:54 INFO handling runtime: 43928
+2023-07-31 15:30:54 INFO saving file wandb-summary.json with policy end
+2023-07-31 15:30:54 INFO send defer
+2023-07-31 15:30:54 INFO handle sender defer: 0
+2023-07-31 15:30:54 INFO send defer: 1
+2023-07-31 15:30:54 INFO handle sender defer: 1
+2023-07-31 15:30:54 INFO send defer: 2
+2023-07-31 15:30:54 INFO handle sender defer: 2
+2023-07-31 15:30:54 INFO send defer: 3
+2023-07-31 15:30:54 INFO handle sender defer: 3
+2023-07-31 15:30:54 INFO send defer: 4
+2023-07-31 15:30:54 INFO handle sender defer: 4
+2023-07-31 15:30:54 INFO send defer: 5
+2023-07-31 15:30:54 INFO handle sender defer: 5
+2023-07-31 15:30:54 INFO send defer: 6
+2023-07-31 15:30:54 INFO handle sender defer: 6
+2023-07-31 15:30:54 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\wandb-summary.json
+2023-07-31 15:30:54 INFO send defer: 7
+2023-07-31 15:30:54 INFO handle sender defer: 7
+2023-07-31 15:30:55 INFO send defer: 8
+2023-07-31 15:30:55 INFO handle sender defer: 8
+2023-07-31 15:30:55 INFO Attempting to build job artifact
+2023-07-31 15:30:55 INFO is repo sourced job
+2023-07-31 15:30:55 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\config.yaml
+2023-07-31 15:30:55 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\output.log
+2023-07-31 15:30:55 INFO adding wandb-job metadata file
+2023-07-31 15:30:55 INFO send defer: 9
+2023-07-31 15:30:58 INFO Skipped uploading C:\Users\98914\AppData\Local\wandb\wandb\artifacts\staging\tmp4qvlobke
+2023-07-31 15:30:58 INFO Skipped uploading C:\Users\98914\AppData\Local\wandb\wandb\artifacts\staging\tmp2vs7ayfc
+2023-07-31 15:31:00 INFO sent artifact job-https___github.com_MohammadVahidiPro_sccl_fork.git_main.py - {'id': 'QXJ0aWZhY3Q6NTI3OTQwMzI3', 'digest': '1b3a96a152d09e774587a73259d2047b', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg2MDY1OTk3', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTI3MjEyODQ2', 'versionIndex': 9}}, 'version': 'latest'}
+2023-07-31 15:31:00 INFO handle sender defer: 9
+2023-07-31 15:31:00 INFO shutting down directory watcher
+2023-07-31 15:31:00 INFO scan: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files
+2023-07-31 15:31:00 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\conda-environment.yaml conda-environment.yaml
+2023-07-31 15:31:00 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\config.yaml config.yaml
+2023-07-31 15:31:00 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\output.log output.log
+2023-07-31 15:31:00 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\requirements.txt requirements.txt
+2023-07-31 15:31:00 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\wandb-metadata.json wandb-metadata.json
+2023-07-31 15:31:00 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\wandb-summary.json wandb-summary.json
+2023-07-31 15:31:00 INFO send defer: 10
+2023-07-31 15:31:00 INFO handle sender defer: 10
+2023-07-31 15:31:00 INFO shutting down file pusher
+2023-07-31 15:31:00 INFO shutting down sender
+2023-07-31 15:31:00 INFO shutting down file pusher
+2023-07-31 15:31:00 INFO waiting for file pusher
+2023-07-31 15:31:02 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\conda-environment.yaml
+2023-07-31 15:31:03 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\config.yaml
+2023-07-31 15:31:05 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\output.log
+2023-07-31 15:31:05 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\wandb-summary.json
+2023-07-31 15:31:07 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230730_232722-hudimgb2\files\requirements.txt
+2023-07-31 15:31:07 INFO send defer: 11
+2023-08-01 06:06:26 INFO open for scan: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\run-jhyxxi2g.wandb
+2023-08-01 06:06:28 INFO watching files in: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files
+2023-08-01 06:06:28 INFO run started: jhyxxi2g with start time 1690847046.111062
+2023-08-01 06:06:28 INFO saving file wandb-metadata.json with policy now
+2023-08-01 06:06:28 INFO updated run: jhyxxi2g
+2023-08-01 06:06:28 INFO updated run: jhyxxi2g
+2023-08-01 06:06:30 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\config.yaml
+2023-08-01 06:06:30 INFO file/dir created: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\output.log
+2023-08-01 06:06:30 INFO saving file wandb-summary.json with policy end
+2023-08-01 06:06:30 INFO handling exit code: 0
+2023-08-01 06:06:30 INFO handling runtime: 10275
+2023-08-01 06:06:30 INFO saving file wandb-summary.json with policy end
+2023-08-01 06:06:30 INFO send defer
+2023-08-01 06:06:30 INFO handle sender defer: 0
+2023-08-01 06:06:30 INFO send defer: 1
+2023-08-01 06:06:30 INFO handle sender defer: 1
+2023-08-01 06:06:30 INFO send defer: 2
+2023-08-01 06:06:30 INFO handle sender defer: 2
+2023-08-01 06:06:30 INFO send defer: 3
+2023-08-01 06:06:30 INFO handle sender defer: 3
+2023-08-01 06:06:30 INFO send defer: 4
+2023-08-01 06:06:30 INFO handle sender defer: 4
+2023-08-01 06:06:30 INFO send defer: 5
+2023-08-01 06:06:30 INFO handle sender defer: 5
+2023-08-01 06:06:30 INFO send defer: 6
+2023-08-01 06:06:30 INFO handle sender defer: 6
+2023-08-01 06:06:30 INFO send defer: 7
+2023-08-01 06:06:30 INFO handle sender defer: 7
+2023-08-01 06:06:31 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\config.yaml
+2023-08-01 06:06:31 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\wandb-summary.json
+2023-08-01 06:06:32 INFO send defer: 8
+2023-08-01 06:06:32 INFO handle sender defer: 8
+2023-08-01 06:06:32 INFO Attempting to build job artifact
+2023-08-01 06:06:32 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\output.log
+2023-08-01 06:06:32 INFO is repo sourced job
+2023-08-01 06:06:32 INFO adding wandb-job metadata file
+2023-08-01 06:06:32 INFO Uploaded file C:\Users\98914\AppData\Local\Temp\tmprxvyzfxnwandb\oy1w1pxc-wandb-metadata.json
+2023-08-01 06:06:32 INFO send defer: 9
+2023-08-01 06:06:35 INFO Skipped uploading C:\Users\98914\AppData\Local\wandb\wandb\artifacts\staging\tmp1waw73pi
+2023-08-01 06:06:37 INFO Uploaded file C:\Users\98914\AppData\Local\wandb\wandb\artifacts\staging\tmpur02j6hx
+2023-08-01 06:06:39 INFO sent artifact job-https___github.com_MohammadVahidiPro_sccl_fork.git_main.py - {'id': 'QXJ0aWZhY3Q6NTI4NTMzNjk0', 'digest': '0d1213a3d722b46fa8b5cc4e09de86c4', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg2MDY1OTk3', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTI3OTQwMzI3', 'versionIndex': 10}}, 'version': 'latest'}
+2023-08-01 06:06:39 INFO handle sender defer: 9
+2023-08-01 06:06:39 INFO shutting down directory watcher
+2023-08-01 06:06:40 INFO scan: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files
+2023-08-01 06:06:40 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\conda-environment.yaml conda-environment.yaml
+2023-08-01 06:06:40 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\config.yaml config.yaml
+2023-08-01 06:06:40 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\output.log output.log
+2023-08-01 06:06:40 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\requirements.txt requirements.txt
+2023-08-01 06:06:40 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\wandb-metadata.json wandb-metadata.json
+2023-08-01 06:06:40 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\wandb-summary.json wandb-summary.json
+2023-08-01 06:06:40 INFO send defer: 10
+2023-08-01 06:06:40 INFO handle sender defer: 10
+2023-08-01 06:06:40 INFO shutting down file pusher
+2023-08-01 06:06:40 INFO shutting down sender
+2023-08-01 06:06:40 INFO shutting down file pusher
+2023-08-01 06:06:40 INFO waiting for file pusher
+2023-08-01 06:06:41 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\conda-environment.yaml
+2023-08-01 06:06:41 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\wandb-summary.json
+2023-08-01 06:06:41 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\config.yaml
+2023-08-01 06:06:42 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230801_031406-jhyxxi2g\files\output.log
+2023-08-01 10:57:39 WARNING requests_with_retry encountered retryable exception: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')). func: <bound method Session.post of <requests.sessions.Session object at 0x0000013EFD369650>>, args: ('https://api.wandb.ai/files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-08-01 10:58:53 WARNING requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000013EFD85A990>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x0000013EFD369650>>, args: ('https://api.wandb.ai/files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-08-01 10:58:59 WARNING requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000013EFD85AFD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x0000013EFD369650>>, args: ('https://api.wandb.ai/files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-08-01 10:59:08 WARNING requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000013EFD85A650>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x0000013EFD369650>>, args: ('https://api.wandb.ai/files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-08-01 10:59:24 WARNING requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000013EFD858950>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x0000013EFD369650>>, args: ('https://api.wandb.ai/files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-08-01 11:00:02 WARNING requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000013EFD858FD0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x0000013EFD369650>>, args: ('https://api.wandb.ai/files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-08-01 11:01:20 WARNING requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000013EFD85A890>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x0000013EFD369650>>, args: ('https://api.wandb.ai/files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-08-01 11:05:08 WARNING requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000013EFD858D10>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x0000013EFD369650>>, args: ('https://api.wandb.ai/files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-08-01 11:09:49 WARNING requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000013EFD859590>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')). func: <bound method Session.post of <requests.sessions.Session object at 0x0000013EFD369650>>, args: ('https://api.wandb.ai/files/mohammadvahidi-pro/sccl-2021/jhyxxi2g/file_stream',), kwargs: {'json': {'complete': False, 'failed': False, 'dropped': 0, 'uploaded': []}}
+2023-08-02 07:11:08 INFO open for scan: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\run-eima9nio.wandb
+2023-08-02 07:11:10 INFO watching files in: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files
+2023-08-02 07:11:10 INFO run started: eima9nio with start time 1690928906.712769
+2023-08-02 07:11:10 INFO saving file wandb-metadata.json with policy now
+2023-08-02 07:11:10 INFO updated run: eima9nio
+2023-08-02 07:11:11 INFO updated run: eima9nio
+2023-08-02 07:11:11 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\config.yaml
+2023-08-02 07:11:11 INFO file/dir created: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\output.log
+2023-08-02 07:11:11 INFO saving file wandb-summary.json with policy end
+2023-08-02 07:11:11 INFO handling exit code: 0
+2023-08-02 07:11:11 INFO handling runtime: 17154
+2023-08-02 07:11:11 INFO saving file wandb-summary.json with policy end
+2023-08-02 07:11:11 INFO send defer
+2023-08-02 07:11:11 INFO handle sender defer: 0
+2023-08-02 07:11:11 INFO send defer: 1
+2023-08-02 07:11:11 INFO handle sender defer: 1
+2023-08-02 07:11:11 INFO send defer: 2
+2023-08-02 07:11:11 INFO handle sender defer: 2
+2023-08-02 07:11:11 INFO send defer: 3
+2023-08-02 07:11:11 INFO handle sender defer: 3
+2023-08-02 07:11:11 INFO send defer: 4
+2023-08-02 07:11:11 INFO handle sender defer: 4
+2023-08-02 07:11:11 INFO send defer: 5
+2023-08-02 07:11:11 INFO handle sender defer: 5
+2023-08-02 07:11:11 INFO send defer: 6
+2023-08-02 07:11:11 INFO handle sender defer: 6
+2023-08-02 07:11:11 INFO send defer: 7
+2023-08-02 07:11:11 INFO handle sender defer: 7
+2023-08-02 07:11:12 INFO Uploaded file C:\Users\98914\AppData\Local\Temp\tmp5rst5qjbwandb\35bqjj9l-wandb-metadata.json
+2023-08-02 07:11:12 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\wandb-summary.json
+2023-08-02 07:11:12 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\config.yaml
+2023-08-02 07:11:13 INFO send defer: 8
+2023-08-02 07:11:13 INFO handle sender defer: 8
+2023-08-02 07:11:13 INFO Attempting to build job artifact
+2023-08-02 07:11:13 INFO is repo sourced job
+2023-08-02 07:11:13 INFO adding wandb-job metadata file
+2023-08-02 07:11:13 INFO send defer: 9
+2023-08-02 07:11:13 INFO file/dir modified: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\output.log
+2023-08-02 07:11:17 INFO Skipped uploading C:\Users\98914\AppData\Local\wandb\wandb\artifacts\staging\tmpmex3cq9v
+2023-08-02 07:11:21 INFO Uploaded file C:\Users\98914\AppData\Local\wandb\wandb\artifacts\staging\tmpdvy4hpuc
+2023-08-02 07:11:24 INFO sent artifact job-https___github.com_MohammadVahidiPro_sccl_fork.git_main.py - {'id': 'QXJ0aWZhY3Q6NTI5ODIxOTUz', 'digest': 'cc675515ccdce4f4701b7879a3549576', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg2MDY1OTk3', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTI4NTYyNTEz', 'versionIndex': 12}}, 'version': 'latest'}
+2023-08-02 07:11:24 INFO handle sender defer: 9
+2023-08-02 07:11:24 INFO shutting down directory watcher
+2023-08-02 07:11:25 INFO scan: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files
+2023-08-02 07:11:25 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\conda-environment.yaml conda-environment.yaml
+2023-08-02 07:11:25 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\config.yaml config.yaml
+2023-08-02 07:11:25 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\output.log output.log
+2023-08-02 07:11:25 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\requirements.txt requirements.txt
+2023-08-02 07:11:25 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\wandb-metadata.json wandb-metadata.json
+2023-08-02 07:11:25 INFO scan save: D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\wandb-summary.json wandb-summary.json
+2023-08-02 07:11:25 INFO send defer: 10
+2023-08-02 07:11:25 INFO handle sender defer: 10
+2023-08-02 07:11:25 INFO shutting down file pusher
+2023-08-02 07:11:25 INFO shutting down sender
+2023-08-02 07:11:25 INFO shutting down file pusher
+2023-08-02 07:11:25 INFO waiting for file pusher
+2023-08-02 07:11:26 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\conda-environment.yaml
+2023-08-02 07:11:27 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\config.yaml
+2023-08-02 07:11:27 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\output.log
+2023-08-02 07:11:27 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\requirements.txt
+2023-08-02 07:11:32 INFO Uploaded file D:\text_clustering_paper\my-forks\sccl_fork\wandb\offline-run-20230802_015826-eima9nio\files\wandb-summary.json
+2023-08-02 07:11:32 INFO send defer: 11

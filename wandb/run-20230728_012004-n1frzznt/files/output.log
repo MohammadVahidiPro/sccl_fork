@@ -1,0 +1,131 @@
+results path: results/SCCL.minilm6.SBERT.virtual.stackoverflow.text.lr1e-05.lrscale100.SCCL.eta10.tmp0.5.alpha1.0.seed0/
+..... loading Sentence-BERT !!!
+first-base: all_embeddings:(20000, 384), true_labels:20000, pred_labels:20000
+first-base, Iterations:45, Clustering ACC:0.707, centers:(20, 384)
+first-base kmeans repre scores: {'first-base/ACC': 0.70715, 'first-base/NMI': 0.7086356350938429, 'first-base/ARI': 0.5246782594960412, 'first-base/AMI': 0.7077383504839683, 'first-base/avg': 0.7078928175469215}
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+Parameter Group 2
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+)
+ Initializing PairConLoss
+*****Intialize SCCLv, temp:0.5, eta:10
+########################################
+=1000/40=Iterations/Batches
+cannot access local variable 'train_loader_iter' where it is not associated with a value
+Iter 0: [Representation]  scores:  {'ACC': 0.7142, 'NMI': 0.6912, 'ARI': 0.5458, 'AMI': 0.6903, 'avg': 0.7027}
+Iter 0:          [Model]  scores:  {'ACC': 0.7077, 'NMI': 0.7093, 'ARI': 0.5267, 'AMI': 0.7084, 'avg': 0.7085}
+###### new BEST step 0 ^^^ ######
+Iter 25: [Representation]  scores:  {'ACC': 0.7113, 'NMI': 0.6908, 'ARI': 0.5493, 'AMI': 0.6898, 'avg': 0.701}
+Iter 25:          [Model]  scores:  {'ACC': 0.7052, 'NMI': 0.7047, 'ARI': 0.5103, 'AMI': 0.7037, 'avg': 0.7049}
+Iter 50: [Representation]  scores:  {'ACC': 0.7104, 'NMI': 0.6868, 'ARI': 0.5458, 'AMI': 0.6859, 'avg': 0.6986}
+Iter 50:          [Model]  scores:  {'ACC': 0.7014, 'NMI': 0.6996, 'ARI': 0.4936, 'AMI': 0.6986, 'avg': 0.7005}
+Iter 75: [Representation]  scores:  {'ACC': 0.7179, 'NMI': 0.6926, 'ARI': 0.5374, 'AMI': 0.6917, 'avg': 0.7053}
+Iter 75:          [Model]  scores:  {'ACC': 0.6986, 'NMI': 0.6955, 'ARI': 0.4853, 'AMI': 0.6946, 'avg': 0.697}
+Iter 100: [Representation]  scores:  {'ACC': 0.7121, 'NMI': 0.6849, 'ARI': 0.5402, 'AMI': 0.684, 'avg': 0.6985}
+Iter 100:          [Model]  scores:  {'ACC': 0.6976, 'NMI': 0.6933, 'ARI': 0.4834, 'AMI': 0.6924, 'avg': 0.6955}
+Iter 125: [Representation]  scores:  {'ACC': 0.7117, 'NMI': 0.6827, 'ARI': 0.5386, 'AMI': 0.6817, 'avg': 0.6972}
+Iter 125:          [Model]  scores:  {'ACC': 0.6995, 'NMI': 0.6912, 'ARI': 0.4904, 'AMI': 0.6902, 'avg': 0.6953}
+Iter 150: [Representation]  scores:  {'ACC': 0.7114, 'NMI': 0.68, 'ARI': 0.5368, 'AMI': 0.679, 'avg': 0.6957}
+Iter 150:          [Model]  scores:  {'ACC': 0.7008, 'NMI': 0.6891, 'ARI': 0.5008, 'AMI': 0.6881, 'avg': 0.695}
+Iter 175: [Representation]  scores:  {'ACC': 0.7107, 'NMI': 0.679, 'ARI': 0.5357, 'AMI': 0.6781, 'avg': 0.6949}
+Iter 175:          [Model]  scores:  {'ACC': 0.7029, 'NMI': 0.6885, 'ARI': 0.5134, 'AMI': 0.6876, 'avg': 0.6957}
+Iter 200: [Representation]  scores:  {'ACC': 0.7122, 'NMI': 0.679, 'ARI': 0.5351, 'AMI': 0.678, 'avg': 0.6956}
+Iter 200:          [Model]  scores:  {'ACC': 0.7064, 'NMI': 0.6885, 'ARI': 0.5296, 'AMI': 0.6875, 'avg': 0.6974}
+Iter 225: [Representation]  scores:  {'ACC': 0.7124, 'NMI': 0.6784, 'ARI': 0.5336, 'AMI': 0.6774, 'avg': 0.6954}
+Iter 225:          [Model]  scores:  {'ACC': 0.7098, 'NMI': 0.6874, 'ARI': 0.5437, 'AMI': 0.6864, 'avg': 0.6986}
+Iter 250: [Representation]  scores:  {'ACC': 0.7146, 'NMI': 0.6787, 'ARI': 0.5347, 'AMI': 0.6777, 'avg': 0.6966}
+Iter 250:          [Model]  scores:  {'ACC': 0.7127, 'NMI': 0.6844, 'ARI': 0.5546, 'AMI': 0.6835, 'avg': 0.6985}
+Iter 275: [Representation]  scores:  {'ACC': 0.7159, 'NMI': 0.6792, 'ARI': 0.535, 'AMI': 0.6782, 'avg': 0.6975}
+Iter 275:          [Model]  scores:  {'ACC': 0.7139, 'NMI': 0.6807, 'ARI': 0.5598, 'AMI': 0.6797, 'avg': 0.6973}
+Iter 300: [Representation]  scores:  {'ACC': 0.7175, 'NMI': 0.6787, 'ARI': 0.5348, 'AMI': 0.6777, 'avg': 0.6981}
+Iter 300:          [Model]  scores:  {'ACC': 0.7146, 'NMI': 0.6764, 'ARI': 0.5608, 'AMI': 0.6754, 'avg': 0.6955}
+Iter 325: [Representation]  scores:  {'ACC': 0.7213, 'NMI': 0.6799, 'ARI': 0.5369, 'AMI': 0.6789, 'avg': 0.7006}
+Iter 325:          [Model]  scores:  {'ACC': 0.7144, 'NMI': 0.6725, 'ARI': 0.5601, 'AMI': 0.6715, 'avg': 0.6934}
+Iter 350: [Representation]  scores:  {'ACC': 0.7161, 'NMI': 0.6778, 'ARI': 0.5197, 'AMI': 0.6768, 'avg': 0.697}
+Iter 350:          [Model]  scores:  {'ACC': 0.7135, 'NMI': 0.6694, 'ARI': 0.5582, 'AMI': 0.6684, 'avg': 0.6914}
+Iter 375: [Representation]  scores:  {'ACC': 0.7174, 'NMI': 0.6787, 'ARI': 0.5195, 'AMI': 0.6777, 'avg': 0.6981}
+Iter 375:          [Model]  scores:  {'ACC': 0.7135, 'NMI': 0.6682, 'ARI': 0.5564, 'AMI': 0.6672, 'avg': 0.6909}
+Iter 400: [Representation]  scores:  {'ACC': 0.7227, 'NMI': 0.6817, 'ARI': 0.5216, 'AMI': 0.6807, 'avg': 0.7022}
+Iter 400:          [Model]  scores:  {'ACC': 0.7111, 'NMI': 0.6649, 'ARI': 0.5518, 'AMI': 0.6639, 'avg': 0.688}
+Iter 425: [Representation]  scores:  {'ACC': 0.7198, 'NMI': 0.6807, 'ARI': 0.5196, 'AMI': 0.6797, 'avg': 0.7002}
+Iter 425:          [Model]  scores:  {'ACC': 0.7097, 'NMI': 0.6622, 'ARI': 0.5491, 'AMI': 0.6612, 'avg': 0.6859}
+Iter 450: [Representation]  scores:  {'ACC': 0.7218, 'NMI': 0.6821, 'ARI': 0.5213, 'AMI': 0.6812, 'avg': 0.702}
+Iter 450:          [Model]  scores:  {'ACC': 0.7097, 'NMI': 0.66, 'ARI': 0.5481, 'AMI': 0.6589, 'avg': 0.6848}
+Iter 475: [Representation]  scores:  {'ACC': 0.7228, 'NMI': 0.6817, 'ARI': 0.5207, 'AMI': 0.6808, 'avg': 0.7023}
+Iter 475:          [Model]  scores:  {'ACC': 0.7096, 'NMI': 0.6585, 'ARI': 0.547, 'AMI': 0.6574, 'avg': 0.684}
+Iter 500: [Representation]  scores:  {'ACC': 0.7229, 'NMI': 0.6817, 'ARI': 0.5213, 'AMI': 0.6808, 'avg': 0.7023}
+Iter 500:          [Model]  scores:  {'ACC': 0.7089, 'NMI': 0.6568, 'ARI': 0.5451, 'AMI': 0.6558, 'avg': 0.6829}
+Iter 525: [Representation]  scores:  {'ACC': 0.7218, 'NMI': 0.6811, 'ARI': 0.5206, 'AMI': 0.6801, 'avg': 0.7014}
+Iter 525:          [Model]  scores:  {'ACC': 0.7079, 'NMI': 0.6545, 'ARI': 0.544, 'AMI': 0.6535, 'avg': 0.6812}
+Iter 550: [Representation]  scores:  {'ACC': 0.7236, 'NMI': 0.6811, 'ARI': 0.5198, 'AMI': 0.6801, 'avg': 0.7023}
+Iter 550:          [Model]  scores:  {'ACC': 0.7073, 'NMI': 0.6532, 'ARI': 0.5431, 'AMI': 0.6522, 'avg': 0.6802}
+Iter 575: [Representation]  scores:  {'ACC': 0.7245, 'NMI': 0.6805, 'ARI': 0.5212, 'AMI': 0.6795, 'avg': 0.7025}
+Iter 575:          [Model]  scores:  {'ACC': 0.7059, 'NMI': 0.6515, 'ARI': 0.5395, 'AMI': 0.6505, 'avg': 0.6787}
+Iter 600: [Representation]  scores:  {'ACC': 0.7216, 'NMI': 0.6805, 'ARI': 0.5176, 'AMI': 0.6796, 'avg': 0.7011}
+Iter 600:          [Model]  scores:  {'ACC': 0.7058, 'NMI': 0.6503, 'ARI': 0.5379, 'AMI': 0.6493, 'avg': 0.6781}
+Iter 625: [Representation]  scores:  {'ACC': 0.7251, 'NMI': 0.682, 'ARI': 0.5205, 'AMI': 0.6811, 'avg': 0.7036}
+Iter 625:          [Model]  scores:  {'ACC': 0.7056, 'NMI': 0.6484, 'ARI': 0.5372, 'AMI': 0.6474, 'avg': 0.677}
+Iter 650: [Representation]  scores:  {'ACC': 0.7244, 'NMI': 0.6809, 'ARI': 0.5193, 'AMI': 0.6799, 'avg': 0.7026}
+Iter 650:          [Model]  scores:  {'ACC': 0.7042, 'NMI': 0.6463, 'ARI': 0.5349, 'AMI': 0.6453, 'avg': 0.6752}
+Iter 675: [Representation]  scores:  {'ACC': 0.7222, 'NMI': 0.68, 'ARI': 0.5184, 'AMI': 0.6791, 'avg': 0.7011}
+Iter 675:          [Model]  scores:  {'ACC': 0.704, 'NMI': 0.6451, 'ARI': 0.534, 'AMI': 0.6441, 'avg': 0.6746}
+Iter 700: [Representation]  scores:  {'ACC': 0.7236, 'NMI': 0.6809, 'ARI': 0.5192, 'AMI': 0.6799, 'avg': 0.7023}
+Iter 700:          [Model]  scores:  {'ACC': 0.7038, 'NMI': 0.6432, 'ARI': 0.5323, 'AMI': 0.6422, 'avg': 0.6735}
+Iter 725: [Representation]  scores:  {'ACC': 0.7253, 'NMI': 0.6806, 'ARI': 0.5168, 'AMI': 0.6796, 'avg': 0.7029}
+Iter 725:          [Model]  scores:  {'ACC': 0.7028, 'NMI': 0.6421, 'ARI': 0.5311, 'AMI': 0.6411, 'avg': 0.6725}
+Iter 750: [Representation]  scores:  {'ACC': 0.7254, 'NMI': 0.6809, 'ARI': 0.5172, 'AMI': 0.6799, 'avg': 0.7032}
+Iter 750:          [Model]  scores:  {'ACC': 0.7024, 'NMI': 0.6415, 'ARI': 0.5305, 'AMI': 0.6405, 'avg': 0.672}
+Iter 775: [Representation]  scores:  {'ACC': 0.724, 'NMI': 0.6819, 'ARI': 0.5194, 'AMI': 0.6809, 'avg': 0.703}
+Iter 775:          [Model]  scores:  {'ACC': 0.7024, 'NMI': 0.6413, 'ARI': 0.5293, 'AMI': 0.6402, 'avg': 0.6718}
+Iter 800: [Representation]  scores:  {'ACC': 0.7251, 'NMI': 0.6814, 'ARI': 0.5182, 'AMI': 0.6805, 'avg': 0.7033}
+Iter 800:          [Model]  scores:  {'ACC': 0.7017, 'NMI': 0.6408, 'ARI': 0.5289, 'AMI': 0.6397, 'avg': 0.6713}
+Iter 825: [Representation]  scores:  {'ACC': 0.725, 'NMI': 0.6819, 'ARI': 0.5189, 'AMI': 0.6809, 'avg': 0.7035}
+Iter 825:          [Model]  scores:  {'ACC': 0.701, 'NMI': 0.6402, 'ARI': 0.527, 'AMI': 0.6392, 'avg': 0.6706}
+Iter 850: [Representation]  scores:  {'ACC': 0.7255, 'NMI': 0.6797, 'ARI': 0.5154, 'AMI': 0.6788, 'avg': 0.7026}
+Iter 850:          [Model]  scores:  {'ACC': 0.7003, 'NMI': 0.6393, 'ARI': 0.5253, 'AMI': 0.6383, 'avg': 0.6698}
+Iter 875: [Representation]  scores:  {'ACC': 0.7257, 'NMI': 0.6808, 'ARI': 0.5168, 'AMI': 0.6798, 'avg': 0.7033}
+Iter 875:          [Model]  scores:  {'ACC': 0.7004, 'NMI': 0.6383, 'ARI': 0.5251, 'AMI': 0.6372, 'avg': 0.6693}
+Iter 900: [Representation]  scores:  {'ACC': 0.7281, 'NMI': 0.6965, 'ARI': 0.5221, 'AMI': 0.6956, 'avg': 0.7123}
+Iter 900:          [Model]  scores:  {'ACC': 0.6998, 'NMI': 0.6383, 'ARI': 0.5246, 'AMI': 0.6372, 'avg': 0.6691}
+Iter 925: [Representation]  scores:  {'ACC': 0.7273, 'NMI': 0.6794, 'ARI': 0.5155, 'AMI': 0.6784, 'avg': 0.7034}
+Iter 925:          [Model]  scores:  {'ACC': 0.699, 'NMI': 0.6373, 'ARI': 0.5231, 'AMI': 0.6362, 'avg': 0.6681}
+Iter 950: [Representation]  scores:  {'ACC': 0.7248, 'NMI': 0.6785, 'ARI': 0.5147, 'AMI': 0.6776, 'avg': 0.7016}
+Iter 950:          [Model]  scores:  {'ACC': 0.6986, 'NMI': 0.6362, 'ARI': 0.5223, 'AMI': 0.6351, 'avg': 0.6674}
+Iter 975: [Representation]  scores:  {'ACC': 0.7248, 'NMI': 0.6783, 'ARI': 0.5155, 'AMI': 0.6773, 'avg': 0.7015}
+Iter 975:          [Model]  scores:  {'ACC': 0.6976, 'NMI': 0.6355, 'ARI': 0.5212, 'AMI': 0.6344, 'avg': 0.6665}
+Iter 1000: [Representation]  scores:  {'ACC': 0.726, 'NMI': 0.6783, 'ARI': 0.5163, 'AMI': 0.6773, 'avg': 0.7022}
+Iter 1000:          [Model]  scores:  {'ACC': 0.6962, 'NMI': 0.6339, 'ARI': 0.5183, 'AMI': 0.6328, 'avg': 0.665}
+last-base: all_embeddings:(20000, 384), true_labels:20000, pred_labels:20000
+last-base, Iterations:77, Clustering ACC:0.742, centers:(20, 384)
+##### the final kmeans repre scores:  {'last-base/ACC': 0.7421, 'last-base/NMI': 0.682782537609761, 'last-base/ARI': 0.5391720992088141, 'last-base/AMI': 0.6818119086876485, 'last-base/avg': 0.7124412688048805}

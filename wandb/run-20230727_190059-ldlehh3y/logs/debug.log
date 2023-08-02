@@ -25,3 +25,10 @@ config: {'train_instance': 'local', 'gpuid': [0], 'seed': 0, 'print_freq': 25, '
 2023-07-27 19:01:22,058 INFO    MainThread:14984 [wandb_run.py:_redirect():2097] Redirects installed.
 2023-07-27 19:01:22,060 INFO    MainThread:14984 [wandb_init.py:init():830] run started, returning control to user process
 2023-07-27 19:03:36,133 INFO    MainThread:14984 [wandb_watch.py:watch():51] Watching
+2023-07-27 23:35:52,971 INFO    MainThread:14984 [wandb_run.py:_finish():1887] finishing run mohammadvahidi-pro/sccl-2021/ldlehh3y
+2023-07-27 23:35:53,202 INFO    MainThread:14984 [wandb_run.py:_atexit_cleanup():2121] got exitcode: 0
+2023-07-27 23:35:53,209 INFO    MainThread:14984 [wandb_run.py:_restore():2104] restore
+2023-07-27 23:35:53,695 INFO    MainThread:14984 [wandb_run.py:_restore():2110] restore done
+2023-07-27 23:36:26,550 INFO    MainThread:14984 [wandb_run.py:_footer_history_summary_info():3464] rendering history
+2023-07-27 23:36:26,565 INFO    MainThread:14984 [wandb_run.py:_footer_history_summary_info():3496] rendering summary
+2023-07-27 23:36:26,616 INFO    MainThread:14984 [wandb_run.py:_footer_sync_info():3423] logging synced files

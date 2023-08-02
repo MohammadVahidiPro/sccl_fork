@@ -51,7 +51,7 @@ def get_kmeans_centers(bert, tokenizer, train_loader, num_classes, max_length, k
 
     # Perform KMeans clustering
     confusion = Confusion(num_classes)
-    clustering_model = KMeans(n_clusters=num_classes, n_init=20, random_state=wb.config.seed) # I changed this TODO
+    clustering_model = KMeans(n_clusters=num_classes, n_init=100) # I changed seed and n_init TODO , random_state=wb.config.seed
     clustering_model.fit(all_embeddings)
     cluster_assignment = clustering_model.labels_
 
