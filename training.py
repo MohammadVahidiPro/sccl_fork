@@ -111,17 +111,23 @@ class SCCLvTrainer(nn.Module):
             cluster_loss *= 0.5
             loss += cluster_loss
             cluster_loss_value = cluster_loss.item()
+            
             losses["cluster_loss"] = cluster_loss_value
-
+        
+        total_loss_value = loss.item()
         loss.backward()
         self.optimizer.step()
         self.optimizer.zero_grad()
 
         wb_dic = {
-            "all-loss": loss.item(),
-            "contrast-loss": contrastive_loss_value,
-            "cluster-loss": cluster_loss_value,
-            "iter": itr
+            "loss/iter":       itr,
+            "loss/total_abs":          total_loss_value,
+            "loss/contrast_abs": contrastive_loss_value,
+            "loss/cluster_abs":      cluster_loss_value,
+            "loss/sum-const-clust": contrastive_loss_value + cluster_loss_value,
+            "loss/contrast-ratio":  contrastive_loss_value / total_loss_value,
+            "loss/cluster-ratio":       cluster_loss_value / total_loss_value,
+
             }
 
         return losses, wb_dic
@@ -156,7 +162,7 @@ class SCCLvTrainer(nn.Module):
 
                 best_path = self.update_best_model(model_scores)
                 if best_path is not None:
-                    print(f"###### new BEST step {i} ^^^ ######")
+                    print(f"###### new BEST step {i} ^^^ ###### \tmodel weights saved at : {best_path}")
                 self.model.train()
             
             if i % self.save_interval == 0:
