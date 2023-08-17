@@ -39,8 +39,8 @@ def time_func(func):
         dif = time.time() - start
 
         # dif = round((end - start)/60, ndigits=2)
-        if global_step < 4:
-            print(f'$$$$$$ "{func.__name__}"TIME: {dif/60:.2f} MIN')
+        if global_step in [0, 50, 100]:
+            print(f'$$$ timer $$$ /{func.__name__}/ ==> {dif/60:.2f} MIN')
         wb.log({f't(m)/{func.__name__}': dif/60, f't(s)/{func.__name__}': dif})
 
         return results
@@ -166,11 +166,11 @@ class SCCLvTrainer(nn.Module):
         print("#" * 40)
         print('\n={}/{}=Iterations/Batches'.format(self.args.max_iter, len(self.train_loader)))
         
-        repre_scores, model_scores = self.evaluate_embedding(0)
+        repre_scores, model_scores = self.evaluate_embedding(-1)
         wb.run.log(repre_scores)
         wb.run.log(model_scores)
         best_path = self.update_best_model(model_scores)
-        
+       
         wb.watch(self.model)
         self.model.train()
         # t0 = time()
@@ -180,8 +180,7 @@ class SCCLvTrainer(nn.Module):
             
             try:
                 batch = next(train_loader_iter)
-            except Exception as e:
-                print(e)
+            except:
                 train_loader_iter = iter(self.train_loader)
                 batch = next(train_loader_iter)
 
@@ -192,7 +191,7 @@ class SCCLvTrainer(nn.Module):
             wb.run.log(loss_dic)
             
             #(self.args.print_freq > 0) and 
-            if (self.args.print_freq > 0) and ((i%self.args.print_freq == 0)  or (i == self.args.max_iter)):
+            if (i != 0) and (self.args.print_freq > 0) and ((i%self.args.print_freq == 0)  or (i == self.args.max_iter)):
                 statistics_log(self.args.tensorboard, losses=losses, global_step=i)
                 repre_scores, model_scores = self.evaluate_embedding(i)
                 wb.run.log(repre_scores)
@@ -200,7 +199,9 @@ class SCCLvTrainer(nn.Module):
 
                 best_path = self.update_best_model(model_scores)
                 if best_path is not None:
-                    print(f"###### new BEST step {i} ^^^ ###### \tmodel weights saved at : {best_path}")
+                    print(f"/\/\/\ /\/\/\ BEST step {i} /\/\/\ /\/\/\ ")
+
+                
             
                 
                 self.model.train()
@@ -209,7 +210,7 @@ class SCCLvTrainer(nn.Module):
                 path = self.save_model_path / f"{wb.run.id}_iter_{i}.pt"
                 torch.save(obj=self.model.state_dict(), f=path.__str__())
             
-        
+        print("best model saved at", best_path)
         wb.run.summary["num-best-updates"] = self.num_best_updates
         return loss_dic, repre_scores, model_scores   
 

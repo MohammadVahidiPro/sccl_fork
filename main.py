@@ -44,7 +44,6 @@ def run(args):
         assert next(bert.parameters()).device.type == "cuda"
         # initialize cluster centers
         cluster_centers, first_base_scores = get_kmeans_centers(bert, tokenizer, train_loader, args.num_classes, args.max_length, keyword="first-base", args=args)
-        print("##### first kmeans repre:", first_base_scores)
 
 
 
@@ -61,6 +60,7 @@ def run(args):
 
         # optimizer 
         optimizer = get_optimizer(model, args)
+        print("##### first kmeans repre:", first_base_scores)
         trainer = SCCLvTrainer(model, tokenizer, optimizer, train_loader, args)
 
         # t0 = time()
