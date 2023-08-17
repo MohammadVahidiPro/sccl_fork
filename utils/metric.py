@@ -184,12 +184,12 @@ class Confusion(object):
     
     def clusterscores(self):
         target,pred = self.conf2label()
-        ACC = self.acc()
-        NMI = normalized_mutual_info_score(target,pred)
-        ARI = adjusted_rand_score(target,pred)
-        AMI = adjusted_mutual_info_score(target,pred)
-        return {'ACC': ACC,
-                'NMI': NMI,
-                'ARI': ARI,
-                'AMI': AMI,
+        ACC = self.acc() * 100
+        NMI = normalized_mutual_info_score(target,pred) * 100
+        ARI = adjusted_rand_score(target,pred) * 100
+        AMI = adjusted_mutual_info_score(target,pred) * 100
+        return {'acc': ACC,
+                'nmi': NMI,
+                'ari': ARI,
+                'ami': AMI,
                 'avg': (ACC + NMI)/2}

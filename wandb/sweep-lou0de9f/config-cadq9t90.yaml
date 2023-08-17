@@ -1,0 +1,12 @@
+wandb_version: 1
+
+bert:
+  value: minilm6
+dataname:
+  value: biomedical
+eta:
+  value: 10
+log_mode:
+  value: online
+max_iter:
+  value: 200

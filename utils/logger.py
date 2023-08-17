@@ -10,7 +10,7 @@ from tensorboardX import SummaryWriter
 import random
 import torch
 import numpy as np
-
+import wandb as wb
 
 def set_global_random_seed(seed):
     torch.manual_seed(seed)
@@ -37,7 +37,7 @@ def setup_path(args):
     resPath += f'.seed{args.seed}/'
     resPath = args.resdir + resPath
     print(f'results path: {resPath}')
-
+    wb.run.summary.update({"tensor-res": resPath})
     tensorboard = SummaryWriter(resPath)
     return resPath, tensorboard
 
@@ -46,8 +46,10 @@ def statistics_log(tensorboard, losses=None, global_step=0):
     # print("[{}]-----".format(global_step))
     if losses is not None:
         for key, val in losses.items():
+            wb.log({f"tsboard/{key}": val})
             if key in ["pos", "neg", "pos_diag", "pos_rand", "neg_offdiag"]:
                 tensorboard.add_histogram('train/'+key, val, global_step)
+                
             else:
                 try:
                     tensorboard.add_scalar('train/'+key, val.item(), global_step)

@@ -4,3 +4,6 @@
 *.npy
 *.wandb
 *.patch
+*.log
+*.pth
+*.pt

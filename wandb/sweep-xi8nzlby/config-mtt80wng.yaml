@@ -1,0 +1,12 @@
+wandb_version: 1
+
+bert:
+  value: distilbert
+dataname:
+  value: biomedical
+eta:
+  value: 10
+log_mode:
+  value: offline
+max_iter:
+  value: 200

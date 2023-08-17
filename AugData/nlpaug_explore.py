@@ -165,9 +165,10 @@ if __name__ == '__main__':
     #     augment_files(datadir=datadir, targetdir=targetdir, dataset=dataset, aug_p=0.2, augtype="word_deletion")
     
     datasets = ["agnews_trans_subst_20", "searchsnippets_trans_subst_20", "stackoverflow_trans_subst_20", "biomedical_trans_subst_20", "googlenews_TS_trans_subst_20", "googlenews_T_trans_subst_20", "googlenews_S_trans_subst_20"]
-    
+    augtype ="charswap"
+    augtype ="trans_subst"
     for dataset in datasets:
-        augment_files(datadir=datadir, targetdir=targetdir, dataset=dataset, aug_p=0.2, augtype="charswap")
+        augment_files(datadir=datadir, targetdir=targetdir, dataset=dataset, aug_p=0.2, augtype=augtype)
 
 
 

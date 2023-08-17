@@ -1,1 +1,1 @@
-{"_wandb": {"runtime": 528}}
+{"first-base/ACC": 0.7171, "first-base/NMI": 0.6976716459573631, "first-base/ARI": 0.555043695437533, "first-base/AMI": 0.6967484569246016, "first-base/avg": 0.7073858229786816, "_wandb": {"runtime": 528}}

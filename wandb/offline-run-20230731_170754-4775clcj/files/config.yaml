@@ -1,0 +1,128 @@
+wandb_version: 1
+
+train_instance:
+  desc: null
+  value: local
+gpuid:
+  desc: null
+  value:
+  - 0
+seed:
+  desc: null
+  value: 42
+print_freq:
+  desc: null
+  value: 25
+resdir:
+  desc: null
+  value: results/
+s3_resdir:
+  desc: null
+  value: results
+bert:
+  desc: null
+  value: minilm6
+use_pretrain:
+  desc: null
+  value: SBERT
+datapath:
+  desc: null
+  value: datasets/
+dataname:
+  desc: null
+  value: stackoverflow
+num_classes:
+  desc: null
+  value: 20
+max_length:
+  desc: null
+  value: 32
+label:
+  desc: null
+  value: label
+text:
+  desc: null
+  value: text
+augmentation_1:
+  desc: null
+  value: text1
+augmentation_2:
+  desc: null
+  value: text2
+lr:
+  desc: null
+  value: 1.0e-05
+lr_scale:
+  desc: null
+  value: 100
+max_iter:
+  desc: null
+  value: 1000
+objective:
+  desc: null
+  value: SCCL
+augtype:
+  desc: null
+  value: virtual
+batch_size:
+  desc: null
+  value: 512
+temperature:
+  desc: null
+  value: 0.5
+eta:
+  desc: null
+  value: 10
+alpha:
+  desc: null
+  value: 1.0
+use_gpu:
+  desc: null
+  value: true
+resPath:
+  desc: null
+  value: null
+tensorboard:
+  desc: null
+  value: null
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.3
+    cli_version: 0.15.5
+    framework: huggingface
+    huggingface_version: 4.29.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1690810675.828519
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 49
+      - 53
+      - 55
+      - 75
+      2:
+      - 1
+      - 5
+      - 11
+      - 49
+      - 53
+      - 55
+      - 75
+      3:
+      - 4
+      - 16
+      - 17
+      - 18
+      - 23
+      - 37
+      - 42
+      4: 3.11.3
+      5: 0.15.5
+      6: 4.29.2
+      8:
+      - 3
+      - 5

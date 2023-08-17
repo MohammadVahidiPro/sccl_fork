@@ -20,12 +20,34 @@ import copy
 
 import torch
 import torch.nn as nn
+import time
 from torch.nn import functional as F
 from learner.cluster_utils import target_distribution
 from learner.contrastive_utils import PairConLoss
 
 insert_keyword = lambda dic, word: {f"{word}/{k}": v                for k, v in dic.items()}
 format_float = lambda dic, ndigit: {k            : round(v, ndigit) for k, v in dic.items()}
+import functools
+
+global_step = 0
+
+def time_func(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        results = func(*args, **kwargs)
+        dif = time.time() - start
+
+        # dif = round((end - start)/60, ndigits=2)
+        if global_step < 4:
+            print(f'$$$$$$ "{func.__name__}"TIME: {dif/60:.2f} MIN')
+        wb.log({f't(m)/{func.__name__}': dif/60, f't(s)/{func.__name__}': dif})
+
+        return results
+    return wrapper
+    
+
+
 class SCCLvTrainer(nn.Module): 
     def __init__(self, model, tokenizer, optimizer, train_loader, args):
         super(SCCLvTrainer, self).__init__()
@@ -35,8 +57,11 @@ class SCCLvTrainer(nn.Module):
         self.train_loader = train_loader
         self.args = args
         self.eta = self.args.eta
-        self.save_model_path = Path(__file__).parent.resolve() / "models" / "saved_models" / self.args.dataname
-        self.save_interval = 100
+        print("training with eta : ", self.eta)
+        self.save_model_path = Path(__file__).parent.resolve() / "models" / "saved_models"/ self.args.dataname / "checkpoints" 
+        self.save_best_path = Path(__file__).parent.resolve() / "models" / "saved_models"/ self.args.dataname / "bests" 
+        self.save_embed_path = Path(__file__).parent.resolve() / "models" / "saved_models"/ self.args.dataname / "embeds" 
+
         self.best_model_scores = None
         self.num_best_updates = 0
         self.cluster_loss = nn.KLDivLoss(reduction="sum")
@@ -55,7 +80,7 @@ class SCCLvTrainer(nn.Module):
             wb.run.summary.update(self.best_model_scores)
             wb.run.log(self.best_model_scores)
             self.num_best_updates += 1
-            path = self.save_model_path / f"{wb.run.id}-{self.args.bert}-best-model.pth"
+            path = self.save_best_path / f"{wb.run.id}_my_best_model.pth"
             torch.save(obj=self.model.state_dict(), f=path.__str__())
         return path
             # self.model()
@@ -70,7 +95,7 @@ class SCCLvTrainer(nn.Module):
         )
         return token_feat
         
-
+    @time_func
     def prepare_transformer_input(self, batch):
         if len(batch) == 4:
             text1, text2, text3 = batch['text'], batch['augmentation_1'], batch['augmentation_2']
@@ -91,7 +116,7 @@ class SCCLvTrainer(nn.Module):
             
         return input_ids.cuda(), attention_mask.cuda()
         
-        
+    @time_func
     def train_step_virtual(self, input_ids, attention_mask, itr):
         
         embd1, embd2 = self.model(input_ids, attention_mask, task_type="virtual")
@@ -99,6 +124,8 @@ class SCCLvTrainer(nn.Module):
         # Instance-CL loss
         feat1, feat2 = self.model.contrast_logits(embd1, embd2)
         losses = self.contrast_loss(feat1, feat2)
+        wb.log({"constrast-raw": losses["loss"].item()})
+        
         # contrastive_loss_value = losses["loss"].item()
         loss = self.eta * losses["loss"]
         contrastive_loss_value = loss.item()
@@ -108,6 +135,7 @@ class SCCLvTrainer(nn.Module):
             target = target_distribution(output).detach()
             
             cluster_loss = self.cluster_loss((output+1e-08).log(), target) / output.shape[0]
+            wb.log({"cluster-raw": cluster_loss.item()})
             cluster_loss *= 0.5
             loss += cluster_loss
             cluster_loss_value = cluster_loss.item()
@@ -121,9 +149,9 @@ class SCCLvTrainer(nn.Module):
 
         wb_dic = {
             "loss/iter":       itr,
-            "loss/total_abs":          total_loss_value,
-            "loss/contrast_abs": contrastive_loss_value,
-            "loss/cluster_abs":      cluster_loss_value,
+            "loss/total":          total_loss_value,
+            "loss/cont_scaled": contrastive_loss_value,
+            "loss/clus_scaled":      cluster_loss_value,
             "loss/sum-const-clust": contrastive_loss_value + cluster_loss_value,
             "loss/contrast-ratio":  contrastive_loss_value / total_loss_value,
             "loss/cluster-ratio":       cluster_loss_value / total_loss_value,
@@ -133,14 +161,23 @@ class SCCLvTrainer(nn.Module):
         return losses, wb_dic
     
     
-    
+    @time_func
     def train(self):
         print("#" * 40)
         print('\n={}/{}=Iterations/Batches'.format(self.args.max_iter, len(self.train_loader)))
+        
+        repre_scores, model_scores = self.evaluate_embedding(0)
+        wb.run.log(repre_scores)
+        wb.run.log(model_scores)
+        best_path = self.update_best_model(model_scores)
+        
         wb.watch(self.model)
         self.model.train()
         # t0 = time()
         for i in np.arange(self.args.max_iter+1):
+            global global_step
+            global_step += 1
+            
             try:
                 batch = next(train_loader_iter)
             except Exception as e:
@@ -150,10 +187,11 @@ class SCCLvTrainer(nn.Module):
 
             input_ids, attention_mask = self.prepare_transformer_input(batch)
 
+
             losses, loss_dic = self.train_step_virtual(input_ids, attention_mask, itr=i) if self.args.augtype == "virtual" else self.train_step_explicit(input_ids, attention_mask)
             wb.run.log(loss_dic)
             
-
+            #(self.args.print_freq > 0) and 
             if (self.args.print_freq > 0) and ((i%self.args.print_freq == 0)  or (i == self.args.max_iter)):
                 statistics_log(self.args.tensorboard, losses=losses, global_step=i)
                 repre_scores, model_scores = self.evaluate_embedding(i)
@@ -163,17 +201,19 @@ class SCCLvTrainer(nn.Module):
                 best_path = self.update_best_model(model_scores)
                 if best_path is not None:
                     print(f"###### new BEST step {i} ^^^ ###### \tmodel weights saved at : {best_path}")
+            
+                
                 self.model.train()
             
-            if i % self.save_interval == 0:
-                path = self.save_model_path / f"{wb.run.id}-{self.args.bert}-iter-{i}.pth"
+            if i % self.args.check_freq == 0:
+                path = self.save_model_path / f"{wb.run.id}_iter_{i}.pt"
                 torch.save(obj=self.model.state_dict(), f=path.__str__())
             
         
         wb.run.summary["num-best-updates"] = self.num_best_updates
         return loss_dic, repre_scores, model_scores   
 
-    
+    @time_func
     def evaluate_embedding(self, step):
         dataloader = unshuffle_loader(self.args)
         # print('---- {} evaluation batches ----'.format(len(dataloader)))
@@ -223,13 +263,17 @@ class SCCLvTrainer(nn.Module):
         np.save(self.args.resPath + 'mscores_{}.npy'.format(step), confusion_model.clusterscores())
         # np.save(self.args.resPath + 'mpredlabels_{}.npy'.format(step), all_pred.cpu().numpy())
         # np.save(self.args.resPath + 'predlabels_{}.npy'.format(step), pred_labels.cpu().numpy())
-        # np.save(self.args.resPath + 'embeddings_{}.npy'.format(step), embeddings)
-        # np.save(self.args.resPath + 'labels_{}.npy'.format(step), all_labels.cpu())
+        
+        embed_path= self.save_embed_path  / f"{wb.run.id}_embeds__iter_{step}.npy"
+        label_path = self.save_embed_path / f"{wb.run.id}_labels__iter_{step}.npy"
+        # torch.save(obj=self.model.state_dict(), f=path.__str__())
+        np.save(embed_path, embeddings)
+        np.save(label_path, all_labels.cpu().numpy())
 
         repre_scores = confusion.clusterscores()
         model_scores = confusion_model.clusterscores()
-        repre_scores_rounded = format_float(dic=repre_scores, ndigit=4)
-        model_scores_rounded = format_float(dic=model_scores, ndigit=4)
+        repre_scores_rounded = format_float(dic=repre_scores, ndigit=2)
+        model_scores_rounded = format_float(dic=model_scores, ndigit=2)
         
         print(f'Iter {step}: [Representation]  scores: ', repre_scores_rounded) 
         # print('[Representation] ACC: {:.3f}'.format(acc)) 

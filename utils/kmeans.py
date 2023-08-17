@@ -11,8 +11,9 @@ from utils.metric import Confusion
 from sklearn.cluster import KMeans
 import wandb as wb
 
-insert_keyword = lambda dic, word: dict([(f"{word}/{k}", v) for k, v in dic.items()])
-format_float = lambda dic, ndigit: dict([(k, round(v, ndigit)) for k, v in dic.items()])
+from pathlib import Path
+insert_keyword = lambda dic, word: {f"{word}/{k}": v                for k, v in dic.items()}
+format_float = lambda dic, ndigit: {           k : round(v, ndigit) for k, v in dic.items()}
 
 def get_mean_embeddings(bert, input_ids, attention_mask, token_type_ids=None):
         bert_output = bert.forward(input_ids=input_ids, attention_mask=attention_mask)
@@ -32,7 +33,7 @@ def get_batch_token(tokenizer, text, max_length):
     return token_feat
 
 
-def get_kmeans_centers(bert, tokenizer, train_loader, num_classes, max_length, keyword):
+def get_kmeans_centers(bert, tokenizer, train_loader, num_classes, max_length, keyword, args):
     for i, batch in enumerate(train_loader):
 
         text, label = batch['text'], batch['label']
@@ -54,7 +55,9 @@ def get_kmeans_centers(bert, tokenizer, train_loader, num_classes, max_length, k
     clustering_model = KMeans(n_clusters=num_classes, n_init=100) # I changed seed and n_init TODO , random_state=wb.config.seed
     clustering_model.fit(all_embeddings)
     cluster_assignment = clustering_model.labels_
-
+    
+    
+    
     true_labels = all_labels
     pred_labels = torch.tensor(cluster_assignment)    
     print("{}: all_embeddings:{}, true_labels:{}, pred_labels:{}".format(keyword, all_embeddings.shape, len(true_labels), len(pred_labels)))
@@ -64,8 +67,17 @@ def get_kmeans_centers(bert, tokenizer, train_loader, num_classes, max_length, k
     km_scores = confusion.clusterscores()
     print("{}, Iterations:{}, Clustering ACC:{:.3f}, centers:{}".format(keyword, clustering_model.n_iter_, confusion.acc(), clustering_model.cluster_centers_.shape))
     
+    save_embed_path = Path(__file__).parents[1].resolve() / "models" / "saved_models"/ args.dataname / "embeds"
+    embed_path=  save_embed_path / f"{wb.run.id}_embeds__kmeans_{keyword}.npy"
+    label_path = save_embed_path / f"{wb.run.id}_labels__kmeans_{keyword}.npy"
+    
+    np.save(embed_path, all_embeddings)
+    np.save(label_path, all_labels.cpu().numpy())
+    
     worded_km_scores = insert_keyword(dic=km_scores, word=keyword)
-    return clustering_model.cluster_centers_, worded_km_scores
+    wb.run.summary.update(worded_km_scores)
+    rounded_scores = format_float(dic=km_scores, ndigit=2)
+    return clustering_model.cluster_centers_, rounded_scores
 
 
 

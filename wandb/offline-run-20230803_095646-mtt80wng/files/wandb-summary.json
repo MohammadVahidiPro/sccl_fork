@@ -1,0 +1,1 @@
+{"first-base/ACC": 0.38895, "first-base/NMI": 0.32677868994654174, "first-base/ARI": 0.20121004843956447, "first-base/AMI": 0.32472743183407193, "first-base/avg": 0.3578643449732709, "time/prepare_transformer_input": 0.0, "_timestamp": 1691045217.2072942, "_runtime": 1210.223081111908, "_step": 0, "_wandb": {"runtime": 1210}}

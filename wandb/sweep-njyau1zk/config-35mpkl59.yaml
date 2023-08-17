@@ -1,0 +1,14 @@
+wandb_version: 1
+
+batch_size:
+  value: 512
+bert:
+  value: minilm6
+dataname:
+  value: searchsnippets
+eta:
+  value: 10
+log_mode:
+  value: offline
+max_iter:
+  value: 1000
