@@ -27,7 +27,7 @@ def run(args):
     print("\n\t####################### New Run ##############################\n")
     pprint.pprint(args)
     with wb.init(project="sccl-2021", mode=args.log_mode, group=args.dataname, config=args) as current_run:
-        current_run.tags =[args.dataname[:4], str(args.eta), args.bert[:4]]
+        current_run.tags =[args.dataname[:4], str(args.eta), args.bert[:4], 'checkpoint-1000', '8qbaxpi7']
         current_run.name = "|".join(current_run.tags) + "|" + current_run.id
         args.resPath, args.tensorboard = setup_path(args)
         set_global_random_seed(args.seed)
@@ -48,10 +48,12 @@ def run(args):
 
 
         model = SCCLBert(bert, tokenizer, cluster_centers=cluster_centers, alpha=args.alpha) 
-        #if True:
-        #
-        #    checkpoint = r"D:\\text_clustering_paper\\my-forks\sccl_fork\\models\saved_models\searchsnippets\\ldlehh3y-minilm6-best-model.pth"
-        #    model.load_state_dict(state_dict=torch.load(f=Path(checkpoint).__str__()))
+        if args.checkpoint != 'none':
+            path = Path(args.checkpoint).resolve()
+            assert path.exists()
+            assert args.dataname in path.__str__()
+            #checkpoint = r"D:\\text_clustering_paper\\my-forks\sccl_fork\\models\saved_models\searchsnippets\\ldlehh3y-minilm6-best-model.pth"
+            model.load_state_dict(state_dict=torch.load(f=path.__str__()))
         model = model.cuda()
         assert next(model.parameters()).device.type == "cuda"
         assert next(model.contrast_head.parameters()).device.type == "cuda"
@@ -93,14 +95,15 @@ def get_my_args(argv):
     parser.add_argument('--train_instance', type=str, default='local') 
     parser.add_argument('--gpuid', nargs="+", type=int, default=[0], help="The list of gpuid, ex:--gpuid 3 1. Negative value means cpu-only")
     parser.add_argument('--seed', type=int, default=0, help="")
-    parser.add_argument('--print_freq', type=float, default=50, help="")
-    parser.add_argument('--check_freq', type=float, default=50, help="")
+    parser.add_argument('--print_freq', type=float, default=100, help="")
+    parser.add_argument('--check_freq', type=float, default=100, help="")
     parser.add_argument('--resdir', type=str, default='results/')
     parser.add_argument('--s3_resdir', type=str, default='results')
     parser.add_argument('--log_mode', default="offline")
     parser.add_argument('--bert', type=str, default='distilbert', help="")
     parser.add_argument('--use_pretrain', type=str, default='SBERT', choices=["BERT", "SBERT", "PAIRSUPCON"])
-    
+    parser.add_argument('--checkpoint', type=str, default=r"D:\\text_clustering_paper\\my-forks\\sccl_fork\\models\\saved_models\\stackoverflow\\checkpoints\\8qbaxpi7_iter_1000.pt")
+    parser.add_argument('--start_iter', type=int, default=1001)  #TODO: finish this
     # Dataset
     parser.add_argument('--datapath', type=str, default='datasets/')
     parser.add_argument('--dataname', type=str, default='stackoverflow', help="")
