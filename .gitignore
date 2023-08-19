@@ -7,3 +7,6 @@
 *.log
 *.pth
 *.pt
+*.log
+*.log
+wandb/debug-cli.Mohammad.log

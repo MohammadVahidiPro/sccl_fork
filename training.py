@@ -256,8 +256,8 @@ class SCCLvTrainer(nn.Module):
 
         ressave = {"acc":acc, "acc_model":acc_model}
         ressave.update(confusion.clusterscores())
-        for key, val in ressave.items():
-            self.args.tensorboard.add_scalar('Test/{}'.format(key), val, step)
+        # for key, val in ressave.items():
+            # self.args.tensorboard.add_scalar('Test/{}'.format(key), val, step)
             
         np.save(self.args.resPath + 'acc_{}.npy'.format(step), ressave)
         np.save(self.args.resPath + 'scores_{}.npy'.format(step), confusion.clusterscores())

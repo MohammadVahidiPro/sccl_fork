@@ -6,7 +6,7 @@ Date: 02/26/2021
 """
 
 import os
-from tensorboardX import SummaryWriter
+# from tensorboardX import SummaryWriter
 import random
 import torch
 import numpy as np
@@ -38,8 +38,9 @@ def setup_path(args):
     resPath = args.resdir + resPath
     print(f'results path: {resPath}')
     wb.run.summary.update({"tensor-res": resPath})
-    tensorboard = SummaryWriter(resPath)
-    return resPath, tensorboard
+    # tensorboard = SummaryWriter(resPath)
+    # return resPath, tensorboard
+    
 
 
 def statistics_log(tensorboard, losses=None, global_step=0):
@@ -47,15 +48,15 @@ def statistics_log(tensorboard, losses=None, global_step=0):
     if losses is not None:
         for key, val in losses.items():
             wb.log({f"tsboard/{key}": val})
-            if key in ["pos", "neg", "pos_diag", "pos_rand", "neg_offdiag"]:
-                tensorboard.add_histogram('train/'+key, val, global_step)
+            # if key in ["pos", "neg", "pos_diag", "pos_rand", "neg_offdiag"]:
+            #     tensorboard.add_histogram('train/'+key, val, global_step)
                 
-            else:
-                try:
-                    tensorboard.add_scalar('train/'+key, val.item(), global_step)
-                except:
-                    tensorboard.add_scalar('train/'+key, val, global_step)
-                # print("{}:\t {:.3f}".format(key, val))
+            # else:
+            #     try:
+            #         tensorboard.add_scalar('train/'+key, val.item(), global_step)
+            #     except:
+            #         tensorboard.add_scalar('train/'+key, val, global_step)
+            #     # print("{}:\t {:.3f}".format(key, val))
 
 
 
