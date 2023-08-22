@@ -10,3 +10,5 @@
 *.log
 *.log
 wandb/debug-cli.Mohammad.log
+*.tar
+*.log

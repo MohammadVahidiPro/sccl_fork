@@ -39,9 +39,10 @@ def time_func(func):
         dif = time.time() - start
 
         # dif = round((end - start)/60, ndigits=2)
-        if global_step in [0, 50, 100]:
-            print(f'$$$ timer $$$ /{func.__name__}/ ==> {dif/60:.2f} MIN')
-        wb.log({f't(m)/{func.__name__}': dif/60, f't(s)/{func.__name__}': dif})
+        if global_step < 20 or global_step in [0, 50, 100]:
+            print(f'$$$ timer {global_step} $$$ /{func.__name__}/ ==> {dif/60:.2f} MIN')
+        if global_step % 20 == 0:
+            wb.log({f't(m)/{func.__name__}': dif/60, f't(s)/{func.__name__}': dif})
 
         return results
     return wrapper
@@ -58,9 +59,14 @@ class SCCLvTrainer(nn.Module):
         self.args = args
         self.eta = self.args.eta
         print("training with eta : ", self.eta)
-        self.save_model_path = Path(__file__).parent.resolve() / "models" / "saved_models"/ self.args.dataname / "checkpoints" 
-        self.save_best_path = Path(__file__).parent.resolve() / "models" / "saved_models"/ self.args.dataname / "bests" 
-        self.save_embed_path = Path(__file__).parent.resolve() / "models" / "saved_models"/ self.args.dataname / "embeds" 
+        self.save_model_path = Path(args.save_dir).resolve() / self.args.dataname / wb.run.id / "checkpoints" 
+        # self.save_best_path = Path(args.save_dir).resolve() / self.args.dataname / wb.run.id/ "bests" 
+        self.save_embed_path = Path(args.save_dir).resolve() / self.args.dataname / wb.run.id / "embeds" 
+        self.save_model_path.mkdir(parents=True, exist_ok=True)
+        self.save_embed_path.mkdir(parents=True, exist_ok=True)
+        print(self.save_model_path.__str__(), self.save_embed_path.__str__(), sep='\n')
+        wb.run.summary["save_model_path"] = self.save_model_path.__str__()
+        wb.run.summary["save_embed_path"] = self.save_embed_path.__str__()
 
         self.best_model_scores = None
         self.num_best_updates = 0
@@ -80,8 +86,10 @@ class SCCLvTrainer(nn.Module):
             wb.run.summary.update(self.best_model_scores)
             wb.run.log(self.best_model_scores)
             self.num_best_updates += 1
-            path = self.save_best_path / f"{wb.run.id}_my_best_model.pth"
-            torch.save(obj=self.model.state_dict(), f=path.__str__())
+            path = self.save_model_path / f"best_model.tar"
+            state = {'net': self.model.state_dict(), 'optimizer': self.optimizer.state_dict(), 'epoch': global_step}
+            torch.save(obj=state, f=path.__str__())
+            print("/\/\/\ new BEST /\/\/\ ")
         return path
             # self.model()
 
@@ -187,6 +195,7 @@ class SCCLvTrainer(nn.Module):
             input_ids, attention_mask = self.prepare_transformer_input(batch)
 
 
+
             losses, loss_dic = self.train_step_virtual(input_ids, attention_mask, itr=i) if self.args.augtype == "virtual" else self.train_step_explicit(input_ids, attention_mask)
             wb.run.log(loss_dic)
             
@@ -196,19 +205,16 @@ class SCCLvTrainer(nn.Module):
                 repre_scores, model_scores = self.evaluate_embedding(i)
                 wb.run.log(repre_scores)
                 wb.run.log(model_scores)
-
                 best_path = self.update_best_model(model_scores)
-                if best_path is not None:
-                    print(f"/\/\/\ /\/\/\ BEST step {i} /\/\/\ /\/\/\ ")
 
-                
+
             
-                
                 self.model.train()
             
             if i % self.args.check_freq == 0:
-                path = self.save_model_path / f"{wb.run.id}_iter_{i}.pt"
-                torch.save(obj=self.model.state_dict(), f=path.__str__())
+                path = self.save_model_path / f"checkpoint_iter_{i}.tar"
+                state = {'net': self.model.state_dict(), 'optimizer': self.optimizer.state_dict(), 'epoch': i}
+                torch.save(obj=state, f=path.__str__())
             
         print("best model saved at", best_path)
         wb.run.summary["num-best-updates"] = self.num_best_updates
@@ -259,14 +265,14 @@ class SCCLvTrainer(nn.Module):
         # for key, val in ressave.items():
             # self.args.tensorboard.add_scalar('Test/{}'.format(key), val, step)
             
-        np.save(self.args.resPath + 'acc_{}.npy'.format(step), ressave)
-        np.save(self.args.resPath + 'scores_{}.npy'.format(step), confusion.clusterscores())
-        np.save(self.args.resPath + 'mscores_{}.npy'.format(step), confusion_model.clusterscores())
+        # np.save(self.args.resPath + 'acc_{}.npy'.format(step), ressave)
+        # np.save(self.args.resPath + 'scores_{}.npy'.format(step), confusion.clusterscores())
+        # np.save(self.args.resPath + 'mscores_{}.npy'.format(step), confusion_model.clusterscores())
         # np.save(self.args.resPath + 'mpredlabels_{}.npy'.format(step), all_pred.cpu().numpy())
         # np.save(self.args.resPath + 'predlabels_{}.npy'.format(step), pred_labels.cpu().numpy())
         
-        embed_path= self.save_embed_path  / f"{wb.run.id}_embeds__iter_{step}.npy"
-        label_path = self.save_embed_path / f"{wb.run.id}_labels__iter_{step}.npy"
+        embed_path= self.save_embed_path  / f"embeds__iter_{step}.npy"
+        label_path = self.save_embed_path / f"labels__iter_{step}.npy"
         # torch.save(obj=self.model.state_dict(), f=path.__str__())
         np.save(embed_path, embeddings)
         np.save(label_path, all_labels.cpu().numpy())

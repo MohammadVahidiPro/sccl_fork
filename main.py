@@ -51,14 +51,16 @@ def run(args):
         if args.checkpoint.lower() != 'none':
             path = Path(args.checkpoint).resolve()
             assert path.exists()
-            assert args.dataname in path.__str__()
+            # assert args.dataname in path.__str__()
             #checkpoint = r"D:\\text_clustering_paper\\my-forks\sccl_fork\\models\saved_models\searchsnippets\\ldlehh3y-minilm6-best-model.pth"
             model.load_state_dict(state_dict=torch.load(f=path.__str__()))
         model = model.cuda()
+        #TODO: load optmizer state and start epoch too later TODO #
+        
+        
         assert next(model.parameters()).device.type == "cuda"
         assert next(model.contrast_head.parameters()).device.type == "cuda"
         assert model.cluster_centers.device.type == "cuda"
-
 
         # optimizer 
         optimizer = get_optimizer(model, args)
@@ -104,6 +106,7 @@ def get_my_args(argv):
     parser.add_argument('--use_pretrain', type=str, default='SBERT', choices=["BERT", "SBERT", "PAIRSUPCON"])
     parser.add_argument('--checkpoint', type=str, default='none')#r"D:\\text_clustering_paper\\my-forks\\sccl_fork\\models\\saved_models\\stackoverflow\\checkpoints\\8qbaxpi7_iter_1000.pt")
     parser.add_argument('--start_iter', type=int, default=1001)  #TODO: finish this
+    parser.add_argument('--save_dir', type=str, default='save')
     # Dataset
     parser.add_argument('--datapath', type=str, default='datasets/')
     parser.add_argument('--dataname', type=str, default='stackoverflow', help="")
@@ -153,7 +156,9 @@ def get_my_args(argv):
         args.alpha = 1.
     else:
         print("##### unknown dataset...")
-        return None
+    # TODO: remove this after stack experiment
+    args.checkpoint = "models\saved_models\stackoverflow\checkpoints\\54d8jyv9_iter_900.pt"
+    # return None
 
     return args
 """
